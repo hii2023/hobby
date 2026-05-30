@@ -7,435 +7,498 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --orange:#FF6B35;--teal:#4ECDC4;--yellow:#FFE66D;--dark:#2C3E50;
-  --purple:#7C3AED;--green:#22C55E;--pink:#FF6B9D;--blue:#3B82F6;
-  --bg:#FFFBF7;--card:#fff;--text:#1a1a2e;--muted:#6b7280;
-}
+:root{--orange:#FF6B35;--teal:#4ECDC4;--yellow:#FFE66D;--dark:#2C3E50;--purple:#7C3AED;--green:#22C55E;--pink:#FF6B9D;--blue:#3B82F6;--bg:#FFFBF7;--muted:#6b7280}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:#1a1a2e;overflow-x:hidden}
 h1,h2,h3,h4{font-family:'Baloo 2',cursive}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,251,247,0.95);backdrop-filter:blur(12px);border-bottom:2px solid rgba(255,107,53,0.1);padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,251,247,0.96);backdrop-filter:blur(12px);border-bottom:2px solid rgba(255,107,53,0.1);padding:0 24px}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:'Baloo 2',cursive;font-size:1.6rem;font-weight:800;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:6px}
-.logo span{color:var(--teal)}
-.nav-links{display:flex;gap:4px;list-style:none}
-.nav-links a{padding:6px 14px;border-radius:20px;font-size:0.85rem;font-weight:500;color:var(--dark);text-decoration:none;transition:all 0.2s;cursor:pointer}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{padding:6px 12px;border-radius:20px;font-size:0.82rem;font-weight:500;color:var(--dark);text-decoration:none;transition:.2s;cursor:pointer}
 .nav-links a:hover{background:var(--orange);color:#fff}
-.nav-cta{background:var(--orange);color:#fff;border:none;padding:8px 20px;border-radius:24px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.2s;font-family:'Baloo 2',cursive}
-.nav-cta:hover{background:#e55a25;transform:translateY(-1px)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{width:24px;height:2px;background:var(--dark);border-radius:2px;transition:0.3s}
-
-/* SECTIONS */
-section{padding:80px 24px;max-width:1200px;margin:0 auto}
-.section-tag{display:inline-block;background:rgba(255,107,53,0.12);color:var(--orange);font-weight:700;font-size:0.8rem;padding:4px 12px;border-radius:20px;margin-bottom:12px;letter-spacing:0.5px;text-transform:uppercase}
-.section-title{font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:12px}
-.section-sub{font-size:1.05rem;color:var(--muted);max-width:600px;line-height:1.6}
+.nav-cta{background:var(--orange);color:#fff;border:none;padding:8px 18px;border-radius:24px;font-weight:700;font-size:0.88rem;cursor:pointer;font-family:'Baloo 2',cursive;transition:.2s}
+.nav-cta:hover{background:#e55a25}
+section{padding:72px 24px;max-width:1200px;margin:0 auto}
+.stag{display:inline-block;background:rgba(255,107,53,0.12);color:var(--orange);font-weight:700;font-size:0.78rem;padding:4px 12px;border-radius:20px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.stitle{font-size:2.2rem;font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:10px}
+.ssub{font-size:1rem;color:var(--muted);line-height:1.6;max-width:600px}
 .center{text-align:center;margin:0 auto}
-.card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:all 0.25s;cursor:pointer}
+.card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.07);transition:.25s;cursor:pointer}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.12)}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.mt-16{margin-top:64px}
-.mt-12{margin-top:48px}
-.mt-8{margin-top:32px}
-.mt-4{margin-top:16px}
-
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.mt8{margin-top:32px}.mt12{margin-top:48px}.mt16{margin-top:64px}
 /* HERO */
-#hero{padding-top:120px;padding-bottom:60px;max-width:100%;background:linear-gradient(135deg,#FFF8F3 0%,#F0FFFE 50%,#FFFDF0 100%);position:relative;overflow:hidden}
-.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px}
-.hero-blob{position:absolute;border-radius:50%;opacity:0.15;animation:float 6s ease-in-out infinite}
-.blob1{width:400px;height:400px;background:var(--orange);top:-100px;right:-80px;animation-delay:0s}
-.blob2{width:300px;height:300px;background:var(--teal);bottom:-50px;left:-60px;animation-delay:2s}
-.blob3{width:200px;height:200px;background:var(--yellow);top:200px;right:200px;animation-delay:4s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(255,107,53,0.2);padding:8px 16px;border-radius:30px;font-size:0.85rem;font-weight:600;color:var(--orange);margin-bottom:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.hero-badge svg{width:16px;height:16px;fill:var(--orange)}
-.hero-title{font-size:3.8rem;font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:16px;position:relative;z-index:1}
-.hero-title .highlight{color:var(--orange);position:relative}
-.hero-title .highlight2{color:var(--teal)}
-.hero-sub{font-size:1.2rem;color:var(--muted);margin-bottom:32px;line-height:1.6;max-width:560px}
-.hero-search{display:flex;background:#fff;border:2px solid rgba(255,107,53,0.2);border-radius:50px;overflow:hidden;max-width:560px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:32px}
-.hero-search input{flex:1;border:none;padding:16px 24px;font-size:1rem;outline:none;font-family:'Inter',sans-serif;background:transparent}
-.hero-search button{background:var(--orange);color:#fff;border:none;padding:12px 28px;font-weight:700;font-size:0.95rem;cursor:pointer;transition:0.2s;font-family:'Baloo 2',cursive;white-space:nowrap}
-.hero-search button:hover{background:#e55a25}
-.hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
-.chip{background:#fff;border:2px solid #e5e7eb;border-radius:20px;padding:6px 14px;font-size:0.82rem;font-weight:500;cursor:pointer;transition:0.2s;color:var(--dark)}
-.chip:hover,.chip.active{border-color:var(--orange);background:rgba(255,107,53,0.08);color:var(--orange)}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
-.btn-primary{background:var(--orange);color:#fff;border:none;padding:14px 28px;border-radius:30px;font-weight:700;font-size:1rem;cursor:pointer;transition:0.2s;font-family:'Baloo 2',cursive}
-.btn-primary:hover{background:#e55a25;transform:translateY(-2px)}
-.btn-secondary{background:#fff;color:var(--teal);border:2px solid var(--teal);padding:12px 26px;border-radius:30px;font-weight:700;font-size:1rem;cursor:pointer;transition:0.2s;font-family:'Baloo 2',cursive}
-.btn-secondary:hover{background:var(--teal);color:#fff}
-.btn-outline{background:transparent;color:var(--dark);border:2px solid #d1d5db;padding:12px 26px;border-radius:30px;font-weight:600;font-size:0.95rem;cursor:pointer;transition:0.2s;font-family:'Baloo 2',cursive}
-.btn-outline:hover{border-color:var(--dark);background:var(--dark);color:#fff}
-.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column}
-.stat-num{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:var(--dark)}
-.stat-num span{color:var(--orange)}
-.stat-label{font-size:0.8rem;color:var(--muted);font-weight:500}
+#hero{padding-top:0;max-width:100%}
+.hero-wrap{min-height:92vh;display:flex;align-items:center;background:linear-gradient(135deg,#FFF8F3,#F0FFFE 50%,#FFFDF0);position:relative;overflow:hidden;padding:80px 24px 40px}
+.blob{position:absolute;border-radius:50%;opacity:.14;animation:flt 6s ease-in-out infinite}
+.b1{width:420px;height:420px;background:var(--orange);top:-80px;right:-60px}
+.b2{width:280px;height:280px;background:var(--teal);bottom:-40px;left:-50px;animation-delay:2s}
+.b3{width:180px;height:180px;background:var(--yellow);top:220px;right:220px;animation-delay:4s}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(255,107,53,0.2);padding:7px 16px;border-radius:30px;font-size:0.82rem;font-weight:600;color:var(--orange);margin-bottom:22px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.htitle{font-size:3.6rem;font-weight:800;line-height:1.1;color:var(--dark);margin-bottom:14px}
+.htitle .o{color:var(--orange)}.htitle .t{color:var(--teal)}
+.hsub{font-size:1.15rem;color:var(--muted);margin-bottom:28px;line-height:1.6;max-width:540px}
+.hsearch{display:flex;background:#fff;border:2px solid rgba(255,107,53,0.2);border-radius:50px;overflow:hidden;max-width:540px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:24px}
+.hsearch input{flex:1;border:none;padding:14px 22px;font-size:.95rem;outline:none;background:transparent}
+.hsearch button{background:var(--orange);color:#fff;border:none;padding:10px 24px;font-weight:700;cursor:pointer;font-family:'Baloo 2',cursive}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.chip{background:#fff;border:2px solid #e5e7eb;border-radius:20px;padding:5px 13px;font-size:.8rem;font-weight:500;cursor:pointer;transition:.2s;color:var(--dark)}
+.chip:hover,.chip.on{border-color:var(--orange);background:rgba(255,107,53,0.08);color:var(--orange)}
+.hctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.bp{background:var(--orange);color:#fff;border:none;padding:13px 26px;border-radius:30px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Baloo 2',cursive;transition:.2s}
+.bp:hover{background:#e55a25;transform:translateY(-2px)}
+.bs{background:#fff;color:var(--teal);border:2px solid var(--teal);padding:11px 24px;border-radius:30px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Baloo 2',cursive;transition:.2s}
+.bs:hover{background:var(--teal);color:#fff}
+.bo{background:transparent;color:var(--dark);border:2px solid #d1d5db;padding:11px 24px;border-radius:30px;font-weight:600;font-size:.9rem;cursor:pointer;font-family:'Baloo 2',cursive;transition:.2s}
+.bo:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
+.stats{display:flex;gap:36px;flex-wrap:wrap}
+.stn{font-family:'Baloo 2',cursive;font-size:1.7rem;font-weight:800;color:var(--dark)}
+.stn span{color:var(--orange)}
+.stl{font-size:.78rem;color:var(--muted);font-weight:500}
+
+/* LOGO SVG */
+.logo-svg{display:flex;align-items:center;gap:8px;text-decoration:none}
+
+/* AD CONCEPT */
+#ad{background:linear-gradient(135deg,#0f0c29,#1a1560,#0d2137);max-width:100%;padding:80px 24px}
+.ad-inner{max-width:1200px;margin:0 auto}
+.ad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.ad-card{border-radius:20px;padding:24px 18px;text-align:center;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);transition:.25s;cursor:pointer;position:relative;overflow:hidden}
+.ad-card:hover{border-color:rgba(255,107,53,0.5);background:rgba(255,107,53,0.08);transform:translateY(-4px)}
+.ad-anim{font-size:3rem;margin-bottom:14px;display:block}
+.ad-power{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:#fff;margin-bottom:6px}
+.ad-skill{font-size:.82rem;color:#94a3b8;line-height:1.4}
+.ad-arrow{position:absolute;bottom:12px;right:16px;color:rgba(255,107,53,0.6);font-size:1.2rem}
+.ad-hub{background:linear-gradient(135deg,var(--orange),#FF8C5A);border-radius:24px;padding:36px;margin-top:32px;text-align:center;position:relative;overflow:hidden}
+.ad-hub h3{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:#fff;margin-bottom:10px}
+.ad-hub p{color:rgba(255,255,255,0.85);font-size:1rem;line-height:1.6;max-width:600px;margin:0 auto}
+.ad-taglines{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.ad-tl{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);color:#fff;padding:8px 20px;border-radius:24px;font-weight:700;font-size:.88rem}
 
 /* PROBLEM */
-#problem{background:linear-gradient(135deg,#1a1a2e,#2C3E50);border-radius:0;max-width:100%;padding:80px 24px}
-.problem-inner{max-width:1200px;margin:0 auto}
-.problem-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:start;margin-top:48px}
-.vs-badge{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:var(--yellow);align-self:center;text-align:center}
-.problem-col h3{font-size:1.3rem;font-weight:700;margin-bottom:20px}
-.problem-col.old h3{color:#ef4444}
-.problem-col.new h3{color:var(--green)}
-.pain-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;padding:12px 16px;border-radius:12px}
-.pain-item.bad{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)}
-.pain-item.good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
-.pain-icon{width:20px;height:20px;flex-shrink:0;margin-top:2px}
-.pain-icon.x{color:#ef4444}
-.pain-icon.check{color:var(--green)}
-.pain-text{font-size:0.9rem;color:#e2e8f0;line-height:1.4}
-.fragmented-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.frag-logo{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px;text-align:center;font-size:0.8rem;font-weight:600;color:#94a3b8}
+#problem{background:linear-gradient(135deg,#1a1a2e,#2C3E50);max-width:100%;padding:72px 24px}
+.prob-inner{max-width:1200px;margin:0 auto}
+.prob-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:start;margin-top:44px}
+.vs{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:var(--yellow);align-self:center;text-align:center}
+.pc h3{font-size:1.2rem;font-weight:700;margin-bottom:16px}
+.pc.old h3{color:#ef4444}.pc.new h3{color:var(--green)}
+.pi{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;padding:10px 14px;border-radius:12px}
+.pi.bad{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2)}
+.pi.good{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2)}
+.pi-ico{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.pi p{font-size:.87rem;color:#e2e8f0;line-height:1.4}
+.frag{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.fl{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px;text-align:center;font-size:.78rem;font-weight:600;color:#94a3b8}
 
-/* HOW IT WORKS */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
-.steps::before{content:'';position:absolute;top:40px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:2px;background:linear-gradient(90deg,var(--orange),var(--teal));z-index:0}
-.step{text-align:center;position:relative;z-index:1;padding:0 16px}
-.step-num{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
-.step-num.s1{background:var(--orange)}
-.step-num.s2{background:var(--purple)}
-.step-num.s3{background:var(--teal)}
-.step-num.s4{background:var(--green)}
-.step-icon{font-size:2rem;margin-bottom:8px}
-.step h4{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
-.step p{font-size:0.85rem;color:var(--muted);line-height:1.5}
+/* HOW */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;position:relative}
+.steps::before{content:'';position:absolute;top:38px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--orange),var(--teal));z-index:0}
+.step{text-align:center;position:relative;z-index:1;padding:0 14px}
+.snum{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-family:'Baloo 2',cursive;font-size:1.4rem;font-weight:800;color:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+.s1{background:var(--orange)}.s2{background:var(--purple)}.s3{background:var(--teal)}.s4{background:var(--green)}
+.step h4{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+.step p{font-size:.82rem;color:var(--muted);line-height:1.5}
 
-/* DISCOVERY */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-.tab-btn{padding:8px 20px;border-radius:24px;border:2px solid #e5e7eb;font-size:0.88rem;font-weight:600;cursor:pointer;transition:0.2s;background:#fff;color:var(--dark);font-family:'Baloo 2',cursive}
-.tab-btn:hover,.tab-btn.active{border-color:var(--orange);background:var(--orange);color:#fff}
-.activity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.act-card{background:#fff;border-radius:16px;padding:20px 16px;text-align:center;border:2px solid #f3f4f6;transition:all 0.25s;cursor:pointer}
-.act-card:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,53,0.15)}
-.act-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.6rem}
-.act-name{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:4px}
-.act-meta{font-size:0.78rem;color:var(--muted)}
-.act-price{font-size:0.82rem;font-weight:600;color:var(--orange);margin-top:6px}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
-.filter-chip{padding:6px 14px;border-radius:20px;border:2px solid #e5e7eb;font-size:0.82rem;font-weight:500;cursor:pointer;transition:0.2s;background:#fff;color:var(--dark)}
-.filter-chip.active,.filter-chip:hover{border-color:var(--teal);background:rgba(78,205,196,0.1);color:var(--teal)}
+/* DISCOVER */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tb{padding:7px 18px;border-radius:24px;border:2px solid #e5e7eb;font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s;background:#fff;color:var(--dark);font-family:'Baloo 2',cursive}
+.tb:hover,.tb.on{border-color:var(--orange);background:var(--orange);color:#fff}
+.fchips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.fc{padding:5px 13px;border-radius:20px;border:2px solid #e5e7eb;font-size:.8rem;font-weight:500;cursor:pointer;transition:.2s;background:#fff;color:var(--dark)}
+.fc:hover,.fc.on{border-color:var(--teal);background:rgba(78,205,196,0.1);color:var(--teal)}
+.agrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ac{background:#fff;border-radius:16px;padding:18px 14px;text-align:center;border:2px solid #f3f4f6;transition:.25s;cursor:pointer}
+.ac:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,53,0.14)}
+.ai{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:1.5rem}
+.an{font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem;color:var(--dark);margin-bottom:3px}
+.am{font-size:.75rem;color:var(--muted)}
+.apr{font-size:.8rem;font-weight:600;color:var(--orange);margin-top:5px}
 
 /* PACKS */
-.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-.pack-card{border-radius:24px;padding:32px 28px;position:relative;overflow:hidden;cursor:pointer;transition:0.25s}
-.pack-card:hover{transform:translateY(-6px)}
-.pack-card.explorer{background:linear-gradient(135deg,#FF6B35,#FF8C5A)}
-.pack-card.stem{background:linear-gradient(135deg,#7C3AED,#9C5CF7)}
-.pack-card.sports{background:linear-gradient(135deg,#10B981,#34D399)}
-.pack-badge{display:inline-block;background:rgba(255,255,255,0.2);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:0.5px}
-.pack-title{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:8px}
-.pack-desc{font-size:0.9rem;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.5}
-.pack-items{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.pack-item{display:flex;align-items:center;gap:8px;font-size:0.88rem;color:#fff}
-.pack-item svg{width:16px;height:16px;flex-shrink:0}
-.pack-price{display:flex;align-items:baseline;gap:8px}
-.pack-price .amount{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:#fff}
-.pack-price .period{font-size:0.85rem;color:rgba(255,255,255,0.75)}
-.pack-cta{background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.5);color:#fff;padding:10px 24px;border-radius:24px;font-weight:700;font-size:0.9rem;cursor:pointer;transition:0.2s;margin-top:20px;width:100%;font-family:'Baloo 2',cursive}
-.pack-cta:hover{background:rgba(255,255,255,0.35)}
-.pack-blob{position:absolute;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.08);bottom:-40px;right:-40px}
-
-/* SMART REC */
-.rec-layout{display:grid;grid-template-columns:340px 1fr;gap:32px;margin-top:48px;align-items:start}
-.profile-card{background:#fff;border-radius:24px;padding:28px;box-shadow:0 4px 24px rgba(0,0,0,0.08);border:2px solid rgba(255,107,53,0.1)}
-.profile-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:16px}
-.profile-name{font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:800;color:var(--dark)}
-.profile-meta{font-size:0.85rem;color:var(--muted);margin-bottom:16px}
-.profile-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.profile-tag{padding:4px 10px;border-radius:12px;font-size:0.78rem;font-weight:600}
-.tag-orange{background:rgba(255,107,53,0.12);color:var(--orange)}
-.tag-teal{background:rgba(78,205,196,0.12);color:var(--teal)}
-.tag-purple{background:rgba(124,58,237,0.12);color:var(--purple)}
-.profile-detail{display:flex;gap:8px;align-items:center;font-size:0.85rem;color:var(--muted);margin-bottom:8px}
-.profile-detail svg{width:16px;height:16px;color:var(--orange)}
-.ai-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(124,58,237,0.1),rgba(78,205,196,0.1));border:1px solid rgba(124,58,237,0.2);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;color:var(--purple);margin-bottom:16px}
-.rec-cards{display:flex;flex-direction:column;gap:16px}
-.rec-item{background:#fff;border-radius:16px;padding:20px;display:flex;gap:16px;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,0.06);border-left:4px solid var(--orange);transition:0.2s;cursor:pointer}
-.rec-item:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateX(4px)}
-.rec-item:nth-child(2){border-left-color:var(--purple)}
-.rec-item:nth-child(3){border-left-color:var(--teal)}
-.rec-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.rec-info{flex:1}
-.rec-name{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:var(--dark)}
-.rec-provider{font-size:0.82rem;color:var(--muted)}
-.rec-match{display:inline-block;background:rgba(34,197,94,0.1);color:var(--green);font-size:0.78rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:4px}
-.rec-price{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:var(--orange)}
-.rec-area{font-size:0.78rem;color:var(--muted);text-align:right}
-
-/* PROVIDER DASHBOARD */
-#providers{background:linear-gradient(135deg,#f8fafc,#f0fffe);max-width:100%;padding:80px 24px}
-.dash-inner{max-width:1200px;margin:0 auto}
-.dash-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
-.dash-widget{background:#fff;border-radius:20px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.07)}
-.widget-title{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--muted);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.5px;font-size:0.8rem}
-.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
-.kpi{background:var(--bg);border-radius:14px;padding:16px;text-align:center}
-.kpi-val{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:var(--dark)}
-.kpi-label{font-size:0.78rem;color:var(--muted);margin-top:2px}
-.attend-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6}
-.attend-row:last-child{border-bottom:none}
-.attend-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:#fff;flex-shrink:0}
-.attend-name{flex:1;font-size:0.9rem;font-weight:500;color:var(--dark)}
-.attend-status{padding:3px 10px;border-radius:10px;font-size:0.75rem;font-weight:600}
-.status-present{background:rgba(34,197,94,0.1);color:var(--green)}
-.status-absent{background:rgba(239,68,68,0.1);color:#ef4444}
-.notif-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f3f4f6;align-items:flex-start}
-.notif-item:last-child{border-bottom:none}
-.notif-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.notif-text{font-size:0.88rem;color:var(--dark);line-height:1.4}
-.notif-time{font-size:0.75rem;color:var(--muted);margin-top:2px}
-.payment-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f3f4f6}
-.payment-row:last-child{border-bottom:none}
-.payment-name{font-size:0.88rem;font-weight:500;color:var(--dark)}
-.payment-amount{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700}
-.amt-paid{color:var(--green)}
-.amt-due{color:#ef4444}
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.pk{border-radius:24px;padding:30px 26px;position:relative;overflow:hidden;cursor:pointer;transition:.25s}
+.pk:hover{transform:translateY(-6px)}
+.pk.ex{background:linear-gradient(135deg,#FF6B35,#FF8C5A)}
+.pk.st{background:linear-gradient(135deg,#7C3AED,#9C5CF7)}
+.pk.sp{background:linear-gradient(135deg,#10B981,#34D399)}
+.pkb{display:inline-block;background:rgba(255,255,255,0.2);padding:3px 11px;border-radius:20px;font-size:.72rem;font-weight:700;color:#fff;margin-bottom:14px}
+.pkt{font-family:'Baloo 2',cursive;font-size:1.7rem;font-weight:800;color:#fff;margin-bottom:7px}
+.pkd{font-size:.87rem;color:rgba(255,255,255,0.85);margin-bottom:18px;line-height:1.5}
+.pki{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.pki div{display:flex;align-items:center;gap:7px;font-size:.85rem;color:#fff}
+.pkp{font-family:'Baloo 2',cursive;font-size:1.9rem;font-weight:800;color:#fff}
+.pkps{font-size:.82rem;color:rgba(255,255,255,.7)}
+.pkbtn{background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);color:#fff;padding:9px 22px;border-radius:22px;font-weight:700;font-size:.88rem;cursor:pointer;margin-top:18px;width:100%;font-family:'Baloo 2',cursive}
+.pkblob{position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.07);bottom:-35px;right:-35px}
 
 /* PREMIUM */
-.premium-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.prem-card{background:#fff;border-radius:20px;padding:28px 24px;border:2px solid #f3f4f6;transition:0.25s;cursor:pointer;position:relative;overflow:hidden}
-.prem-card:hover{border-color:var(--orange);box-shadow:0 8px 32px rgba(255,107,53,0.12)}
-.prem-card.featured{border-color:var(--orange);background:linear-gradient(135deg,rgba(255,107,53,0.03),rgba(255,230,109,0.05))}
-.prem-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
-.prem-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
-.prem-desc{font-size:0.88rem;color:var(--muted);line-height:1.5}
-.verified-badge{position:absolute;top:16px;right:16px;background:var(--green);color:#fff;font-size:0.7rem;font-weight:700;padding:3px 8px;border-radius:8px}
+.premwrap{background:linear-gradient(135deg,#1a1a2e,#2C3E50);max-width:100%;padding:72px 24px}
+.preminner{max-width:1200px;margin:0 auto}
+.prem-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.premc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:26px 22px;cursor:pointer;transition:.2s}
+.premc:hover{background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.4);transform:translateY(-3px)}
+.premi{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px}
+.premt{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:#fff;margin-bottom:6px}
+.premd{font-size:.85rem;color:#94a3b8;line-height:1.5}
+.vbadge{display:inline-block;background:var(--green);color:#fff;font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:7px;margin-bottom:8px}
+/* Premium marketing angle */
+.prem-angle{background:rgba(255,230,109,.07);border:1px solid rgba(255,230,109,.2);border-radius:16px;padding:20px 24px;margin-top:24px}
+.prem-angle h4{font-family:'Baloo 2',cursive;color:var(--yellow);font-size:1rem;margin-bottom:8px}
+.prem-angle p{font-size:.85rem;color:#94a3b8;line-height:1.6}
+
+/* EVENTS */
+.events-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.evc{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);cursor:pointer;transition:.25s}
+.evc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.evtop{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.evb{padding:18px}
+.evtype{font-size:.72rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.evname{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:5px}
+.evmeta{font-size:.8rem;color:var(--muted);margin-bottom:10px}
+.evprice{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--orange)}
+.evbtns{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.evbtn{background:var(--orange);color:#fff;border:none;padding:6px 16px;border-radius:16px;font-size:.8rem;font-weight:600;cursor:pointer;font-family:'Baloo 2',cursive}
+.evspots{font-size:.75rem;color:var(--muted)}
+
+/* SMART REC */
+.rl{display:grid;grid-template-columns:320px 1fr;gap:28px;margin-top:44px;align-items:start}
+.prof{background:#fff;border-radius:22px;padding:26px;box-shadow:0 4px 24px rgba(0,0,0,.08);border:2px solid rgba(255,107,53,.1)}
+.pav{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:14px}
+.pn{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:800;color:var(--dark)}
+.pm{font-size:.82rem;color:var(--muted);margin-bottom:14px}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.pt{padding:3px 9px;border-radius:10px;font-size:.75rem;font-weight:600}
+.to{background:rgba(255,107,53,.12);color:var(--orange)}
+.tt{background:rgba(78,205,196,.12);color:var(--teal)}
+.tp{background:rgba(124,58,237,.12);color:var(--purple)}
+.pd{display:flex;gap:7px;align-items:center;font-size:.82rem;color:var(--muted);margin-bottom:7px}
+.aibadge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(78,205,196,.1));border:1px solid rgba(124,58,237,.2);padding:5px 12px;border-radius:18px;font-size:.78rem;font-weight:600;color:var(--purple);margin-bottom:14px}
+.recs{display:flex;flex-direction:column;gap:14px}
+.ri{background:#fff;border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid var(--orange);transition:.2s;cursor:pointer}
+.ri:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateX(4px)}
+.ri:nth-child(2){border-left-color:var(--purple)}
+.ri:nth-child(3){border-left-color:var(--teal)}
+.rico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.rin{flex:1}
+.rn{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--dark)}
+.rp{font-size:.8rem;color:var(--muted)}
+.rm{display:inline-block;background:rgba(34,197,94,.1);color:var(--green);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:9px;margin-top:3px}
+.rprice{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:var(--orange)}
+.rarea{font-size:.75rem;color:var(--muted);text-align:right}
+
+/* PROVIDER DASH */
+.dashwrap{background:linear-gradient(135deg,#f8fafc,#f0fffe);max-width:100%;padding:72px 24px}
+.di{max-width:1200px;margin:0 auto}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:36px auto 28px;max-width:960px}
+.kpi{background:#fff;border-radius:14px;padding:16px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.kpiv{font-family:'Baloo 2',cursive;font-size:1.7rem;font-weight:800}
+.kpil{font-size:.75rem;color:var(--muted);margin-top:2px}
+.dl{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.dw{background:#fff;border-radius:18px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+.wt{font-family:'Baloo 2',cursive;font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.ar{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #f3f4f6}
+.ar:last-child{border-bottom:none}
+.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff;flex-shrink:0}
+.aname{flex:1;font-size:.87rem;font-weight:500;color:var(--dark)}
+.ast{padding:3px 9px;border-radius:9px;font-size:.73rem;font-weight:600}
+.sp{background:rgba(34,197,94,.1);color:var(--green)}
+.sa{background:rgba(239,68,68,.1);color:#ef4444}
+.ni{display:flex;gap:10px;padding:11px 0;border-bottom:1px solid #f3f4f6;align-items:flex-start}
+.ni:last-child{border-bottom:none}
+.nd{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.nt{font-size:.85rem;color:var(--dark);line-height:1.4}
+.ntm{font-size:.73rem;color:var(--muted);margin-top:2px}
+.pr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #f3f4f6}
+.pr:last-child{border-bottom:none}
+.prn{font-size:.85rem;font-weight:500;color:var(--dark)}
+.pra{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700}
+.paid{color:var(--green)}.due{color:#ef4444}
 
 /* MEMBERSHIP */
-.membership-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;align-items:start}
-.mem-card{background:linear-gradient(135deg,#2C3E50,#3d5166);border-radius:24px;padding:36px;color:#fff}
-.mem-price{font-family:'Baloo 2',cursive;font-size:3.5rem;font-weight:800;color:var(--yellow);margin:16px 0 4px}
-.mem-price span{font-size:1rem;color:rgba(255,255,255,0.6)}
-.mem-benefits{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-.mem-benefit{display:flex;align-items:center;gap:10px;font-size:0.9rem}
-.mem-benefit svg{width:18px;height:18px;color:var(--yellow);flex-shrink:0}
-.badges-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.badge-card{background:#fff;border-radius:20px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:0.2s;cursor:pointer}
-.badge-card:hover{transform:translateY(-3px)}
-.badge-icon{font-size:2.5rem;margin-bottom:10px}
-.badge-name{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.95rem;color:var(--dark)}
-.badge-desc{font-size:0.8rem;color:var(--muted);margin-top:4px}
+.memwrap{background:linear-gradient(135deg,#FFF8F3,#F0FFFE);max-width:100%;padding:72px 24px}
+.meminner{max-width:1200px;margin:0 auto}
+.meml{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;align-items:start}
+.memc{background:linear-gradient(135deg,#2C3E50,#3d5166);border-radius:22px;padding:32px;color:#fff}
+.memp{font-family:'Baloo 2',cursive;font-size:3.2rem;font-weight:800;color:var(--yellow);margin:14px 0 4px}
+.memp span{font-size:.95rem;color:rgba(255,255,255,.6)}
+.membs{display:flex;flex-direction:column;gap:9px;margin-top:18px}
+.memb{display:flex;align-items:center;gap:9px;font-size:.87rem}
+.badges{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.badge{background:#fff;border-radius:18px;padding:22px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.07);transition:.2s;cursor:pointer}
+.badge:hover{transform:translateY(-3px)}
+.bdi{font-size:2.2rem;margin-bottom:8px}
+.bdn{font-family:'Baloo 2',cursive;font-weight:700;font-size:.9rem;color:var(--dark)}
+.bdd{font-size:.78rem;color:var(--muted);margin-top:3px}
 
 /* BUSINESS MODEL */
-.biz-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
-.biz-card{background:#fff;border-radius:20px;padding:24px;text-align:center;border-top:4px solid;transition:0.25s;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.biz-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.1)}
-.biz-card.c1{border-top-color:var(--orange)}
-.biz-card.c2{border-top-color:var(--teal)}
-.biz-card.c3{border-top-color:var(--purple)}
-.biz-card.c4{border-top-color:var(--yellow)}
-.biz-icon{font-size:2rem;margin-bottom:12px}
-.biz-title{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:12px}
-.biz-items{list-style:none;text-align:left}
-.biz-items li{font-size:0.82rem;color:var(--muted);padding:4px 0;border-bottom:1px solid #f9fafb;display:flex;align-items:center;gap:6px}
-.biz-items li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
-.biz-card.c2 .biz-items li::before{background:var(--teal)}
-.biz-card.c3 .biz-items li::before{background:var(--purple)}
-.biz-card.c4 .biz-items li::before{background:#d97706}
+.bizg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.biz{background:#fff;border-radius:18px;padding:22px;text-align:center;border-top:4px solid;box-shadow:0 4px 16px rgba(0,0,0,.06);transition:.25s;cursor:pointer}
+.biz:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.biz.c1{border-top-color:var(--orange)}.biz.c2{border-top-color:var(--teal)}.biz.c3{border-top-color:var(--purple)}.biz.c4{border-top-color:#f59e0b}
+.bizi{font-size:1.9rem;margin-bottom:10px}
+.bizt{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.bizl{list-style:none;text-align:left}
+.bizl li{font-size:.8rem;color:var(--muted);padding:3px 0;border-bottom:1px solid #f9fafb;display:flex;align-items:center;gap:5px}
+.bizl li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.biz.c2 .bizl li::before{background:var(--teal)}.biz.c3 .bizl li::before{background:var(--purple)}.biz.c4 .bizl li::before{background:#f59e0b}
 
-/* DEMAND INTELLIGENCE */
-#intel{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);max-width:100%;padding:80px 24px}
-.intel-inner{max-width:1200px;margin:0 auto}
-.intel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.intel-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:24px;cursor:pointer;transition:0.2s}
-.intel-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(78,205,196,0.4)}
-.intel-area{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:12px}
-.intel-demand{font-size:0.82rem;color:#94a3b8;margin-bottom:8px}
-.intel-demand strong{color:var(--teal)}
-.opp-bar{background:rgba(255,255,255,0.1);border-radius:10px;height:8px;overflow:hidden;margin:8px 0}
-.opp-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--teal),var(--green))}
-.opp-score{display:flex;justify-content:space-between;align-items:center}
-.opp-label{font-size:0.78rem;color:#94a3b8}
-.opp-val{font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:800;color:var(--yellow)}
+/* ANALYSIS */
+.analysiswrap{background:linear-gradient(135deg,#0f0c29,#1a1560);max-width:100%;padding:72px 24px}
+.ainner{max-width:1200px;margin:0 auto}
+.scoreg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.scorec{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px;text-align:center;cursor:pointer;transition:.2s}
+.scorec:hover{background:rgba(255,255,255,.09)}
+.scoren{font-family:'Baloo 2',cursive;font-size:3.5rem;font-weight:800;margin-bottom:6px}
+.scorel{font-size:.9rem;color:#94a3b8;margin-bottom:14px}
+.scorebar{background:rgba(255,255,255,.1);border-radius:10px;height:10px;overflow:hidden}
+.scorefill{height:100%;border-radius:10px}
+.scoredesc{font-size:.82rem;color:#64748b;margin-top:12px;line-height:1.5}
+.compwrap{margin-top:44px}
+.compl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.compc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px}
+.compn{font-family:'Baloo 2',cursive;font-weight:700;color:#fff;margin-bottom:6px;font-size:.95rem}
+.compm{font-size:.8rem;color:#94a3b8;margin-bottom:10px}
+.compt{display:flex;flex-wrap:wrap;gap:5px}
+.comptag{padding:3px 8px;border-radius:8px;font-size:.72rem;font-weight:600}
+.risk-g{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.riskc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px}
+.riskh{font-family:'Baloo 2',cursive;font-size:.95rem;font-weight:700;color:#ef4444;margin-bottom:8px}
+.risks{font-size:.83rem;color:var(--green);line-height:1.5}
+
+/* INTEL */
+.intelwrap{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);max-width:100%;padding:72px 24px}
+.inteli{max-width:1200px;margin:0 auto}
+.intelg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.intelc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;cursor:pointer;transition:.2s}
+.intelc:hover{background:rgba(255,255,255,.09);border-color:rgba(78,205,196,.4)}
+.intela{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px}
+.inteld{font-size:.8rem;color:#94a3b8;margin-bottom:6px}
+.inteld strong{color:var(--teal)}
+.oppbar{background:rgba(255,255,255,.1);border-radius:10px;height:8px;overflow:hidden;margin:8px 0}
+.oppfill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--teal),var(--green))}
+.opprow{display:flex;justify-content:space-between;align-items:center}
+.oppl{font-size:.75rem;color:#94a3b8}
+.oppv{font-family:'Baloo 2',cursive;font-size:1.05rem;font-weight:800;color:var(--yellow)}
 
 /* MVP */
-.mvp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
-.mvp-card{background:#fff;border-radius:20px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.07)}
-.mvp-num{font-family:'Baloo 2',cursive;font-size:2.5rem;font-weight:800;color:var(--orange)}
-.mvp-label{font-size:0.85rem;color:var(--muted);font-weight:500;margin-bottom:16px}
-.progress-bar{background:#f3f4f6;border-radius:10px;height:8px;overflow:hidden;margin-bottom:8px}
-.progress-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--orange),var(--yellow));transition:width 0.5s ease}
-.progress-pct{font-size:0.75rem;color:var(--muted);text-align:right}
-.cost-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.cost-item{background:rgba(255,107,53,0.06);border:1px solid rgba(255,107,53,0.15);border-radius:14px;padding:16px;text-align:center}
-.cost-val{font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:var(--orange)}
-.cost-label{font-size:0.78rem;color:var(--muted);margin-top:4px}
+.mvpg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.mvpc{background:#fff;border-radius:18px;padding:22px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.07)}
+.mvpn{font-family:'Baloo 2',cursive;font-size:2.3rem;font-weight:800;color:var(--orange)}
+.mvpl{font-size:.82rem;color:var(--muted);font-weight:500;margin-bottom:14px}
+.pb{background:#f3f4f6;border-radius:10px;height:8px;overflow:hidden;margin-bottom:7px}
+.pf{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--orange),var(--yellow));transition:width .5s}
+.pp{font-size:.73rem;color:var(--muted);text-align:right}
+.costg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.costc{background:rgba(255,107,53,.06);border:1px solid rgba(255,107,53,.15);border-radius:12px;padding:14px;text-align:center}
+.costv{font-family:'Baloo 2',cursive;font-size:1.15rem;font-weight:700;color:var(--orange)}
+.costl{font-size:.75rem;color:var(--muted);margin-top:3px}
+.phaseg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.phasec{background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid var(--orange)}
+.phasec:nth-child(2){border-left-color:var(--purple)}.phasec:nth-child(3){border-left-color:var(--teal)}
+.phaset{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.phased{font-size:.82rem;color:var(--muted);line-height:1.5}
 
 /* FOOTER */
-footer{background:var(--dark);padding:60px 24px 40px;color:#fff}
-.footer-inner{max-width:1200px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-brand{font-family:'Baloo 2',cursive;font-size:2rem;font-weight:800;color:var(--orange);margin-bottom:12px}
-.footer-brand span{color:var(--teal)}
-.footer-tagline{font-size:0.9rem;color:#94a3b8;line-height:1.6;margin-bottom:20px}
-.footer-col h4{font-family:'Baloo 2',cursive;font-weight:700;font-size:1rem;margin-bottom:16px;color:#e2e8f0}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-col ul li a{font-size:0.85rem;color:#94a3b8;text-decoration:none;transition:0.2s}
-.footer-col ul li a:hover{color:var(--orange)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
-.footer-copy{font-size:0.82rem;color:#64748b}
-.city-badge{background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.3);color:var(--orange);padding:4px 12px;border-radius:12px;font-size:0.78rem;font-weight:600}
-
+footer{background:var(--dark);padding:52px 24px 36px;color:#fff}
+.fi{max-width:1200px;margin:0 auto}
+.ftop{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px}
+.fbrand{font-family:'Baloo 2',cursive;font-size:1.8rem;font-weight:800;color:var(--orange);margin-bottom:10px}
+.fbrand span{color:var(--teal)}
+.ftagline{font-size:.87rem;color:#94a3b8;line-height:1.6;margin-bottom:16px}
+.fcol h4{font-family:'Baloo 2',cursive;font-weight:700;font-size:.95rem;margin-bottom:14px;color:#e2e8f0}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.fcol ul li a{font-size:.82rem;color:#94a3b8;text-decoration:none;transition:.2s}
+.fcol ul li a:hover{color:var(--orange)}
+.fbot{border-top:1px solid rgba(255,255,255,.1);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.fcopy{font-size:.8rem;color:#64748b}
+.citybadge{background:rgba(255,107,53,.15);border:1px solid rgba(255,107,53,.3);color:var(--orange);padding:4px 12px;border-radius:11px;font-size:.75rem;font-weight:600}
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero-title{font-size:2.5rem}
-  .section-title{font-size:1.8rem}
-  .grid-2,.grid-3,.grid-4,.steps,.packs-grid,.premium-grid,.biz-grid,.mvp-grid,.intel-grid{grid-template-columns:1fr 1fr}
-  .problem-vs,.rec-layout,.membership-layout,.dash-layout{grid-template-columns:1fr}
-  .vs-badge{display:none}
-  .activity-grid{grid-template-columns:repeat(3,1fr)}
-  .footer-top{grid-template-columns:1fr 1fr}
-  .steps::before{display:none}
+  .htitle{font-size:2.4rem}.stitle{font-size:1.7rem}
+  .g2,.g3,.g4,.steps,.packs,.prem-g,.bizg,.mvpg,.intelg,.scoreg,.compl,.risk-g,.phaseg,.events-g{grid-template-columns:1fr 1fr}
+  .prob-vs,.rl,.meml,.dl{grid-template-columns:1fr}.vs{display:none}
+  .agrid{grid-template-columns:repeat(3,1fr)}.ftop{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}.kpis{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:600px){
-  .hero-title{font-size:1.9rem}
-  .grid-2,.grid-3,.grid-4,.steps,.packs-grid,.premium-grid,.biz-grid,.mvp-grid,.intel-grid,.activity-grid,.badges-grid,.cost-grid,.kpi-row{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .footer-top{grid-template-columns:1fr}
-  .hero-stats{gap:20px}
+  .htitle{font-size:1.8rem}
+  .g2,.g3,.g4,.steps,.packs,.prem-g,.bizg,.mvpg,.intelg,.scoreg,.compl,.risk-g,.phaseg,.events-g,.agrid,.badges,.costg,.kpis{grid-template-columns:1fr}
+  .nav-links{display:none}.ftop{grid-template-columns:1fr}.stats{gap:18px}
 }
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#">Hobby<span>o</span></a>
+    <a class="logo-svg" href="#" style="text-decoration:none">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="13" fill="#FF6B35"/>
+        <path d="M10 28 Q14 16 22 14 Q30 12 34 20" stroke="#FFE66D" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="26" r="9" fill="#FFFBF7"/>
+        <circle cx="22" cy="26" r="6" fill="#4ECDC4"/>
+        <path d="M19 26 L21 28 L25 23" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="14" cy="20" r="3" fill="#FFE66D"/>
+        <circle cx="30" cy="18" r="2.5" fill="#FF6B9D"/>
+      </svg>
+      <span style="font-family:'Baloo 2',cursive;font-size:1.55rem;font-weight:800;color:#FF6B35">Hobby<span style="color:#4ECDC4">o</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
+      <li><a href="#ad">Ad Concept</a></li>
       <li><a href="#discover">Discover</a></li>
       <li><a href="#packs">Packs</a></li>
+      <li><a href="#events">Events</a></li>
       <li><a href="#providers">Providers</a></li>
-      <li><a href="#business">Business</a></li>
+      <li><a href="#analysis">Analysis</a></li>
       <li><a href="#mvp">MVP</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">Get Started</button>
-    <div class="hamburger" onclick="this.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
+    <button class="nav-cta">Get Started</button>
   </div>
 </nav>
-
 <!-- HERO -->
-<div id="hero" style="padding-top:0">
-  <div style="padding-top:64px;background:linear-gradient(135deg,#FFF8F3 0%,#F0FFFE 50%,#FFFDF0 100%);position:relative;overflow:hidden;min-height:90vh;display:flex;align-items:center">
-    <div class="hero-blob blob1"></div>
-    <div class="hero-blob blob2"></div>
-    <div class="hero-blob blob3"></div>
-    <div class="hero-inner" style="position:relative;z-index:1;width:100%;padding:60px 24px">
+<div id="hero">
+  <div class="hero-wrap">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="hero-inner">
       <div class="hero-badge">
-        <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF6B35"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
         India's First Family Activity Operating System
       </div>
-      <h1 class="hero-title">Every Child Has A<br><span class="highlight">Different Superpower.</span><br>Help Them <span class="highlight2">Find It.</span></h1>
-      <p class="hero-sub">Hobbyo connects families with the best activities, classes, camps, and workshops in Ahmedabad — and soon, across India.</p>
-      <div class="hero-search">
-        <input type="text" placeholder="Search activities, classes, or hobbies in Ahmedabad...">
+      <h1 class="htitle">Every Child Has A<br><span class="o">Different Superpower.</span><br>Help Them <span class="t">Find It.</span></h1>
+      <p class="hsub">Hobbyo connects families, children, women, adults and seniors with the best activities, classes, camps and workshops — starting in Ahmedabad.</p>
+      <div class="hsearch">
+        <input type="text" placeholder="Search robotics, yoga, chess, trekking in Ahmedabad...">
         <button>Search</button>
       </div>
-      <div class="hero-chips">
-        <div class="chip active">Robotics</div>
-        <div class="chip">Chess</div>
-        <div class="chip">Dance</div>
-        <div class="chip">Yoga</div>
-        <div class="chip">Swimming</div>
-        <div class="chip">Art</div>
-        <div class="chip">STEM</div>
-        <div class="chip">Music</div>
+      <div class="chips">
+        <div class="chip on">Robotics</div><div class="chip">Chess</div><div class="chip">Dance</div>
+        <div class="chip">Yoga</div><div class="chip">Swimming</div><div class="chip">Art</div>
+        <div class="chip">STEM</div><div class="chip">Trekking</div>
       </div>
-      <div class="hero-ctas">
-        <button class="btn-primary" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">For Parents &amp; Families</button>
-        <button class="btn-secondary" onclick="document.getElementById('providers').scrollIntoView({behavior:'smooth'})">For Providers</button>
-        <button class="btn-outline">For Schools</button>
+      <div class="hctas">
+        <button class="bp" onclick="document.getElementById('discover').scrollIntoView({behavior:'smooth'})">For Parents &amp; Families</button>
+        <button class="bs" onclick="document.getElementById('providers').scrollIntoView({behavior:'smooth'})">For Providers</button>
+        <button class="bo">For Schools</button>
       </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">200<span>+</span></div><div class="stat-label">Activities in Ahmedabad</div></div>
-        <div class="stat"><div class="stat-num">50<span>+</span></div><div class="stat-label">Verified Providers</div></div>
-        <div class="stat"><div class="stat-num">8<span>+</span></div><div class="stat-label">Activity Categories</div></div>
-        <div class="stat"><div class="stat-num">₹0</div><div class="stat-label">Free to Discover</div></div>
+      <div class="stats">
+        <div><div class="stn">200<span>+</span></div><div class="stl">Activities in Ahmedabad</div></div>
+        <div><div class="stn">50<span>+</span></div><div class="stl">Verified Providers</div></div>
+        <div><div class="stn">8<span>+</span></div><div class="stl">Categories</div></div>
+        <div><div class="stn">₹0</div><div class="stl">Free to Discover</div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PROBLEM -->
-<div id="problem" style="background:linear-gradient(135deg,#1a1a2e,#2C3E50);padding:80px 24px">
-  <div class="problem-inner">
+<!-- AD CONCEPT -->
+<div id="ad" style="background:linear-gradient(135deg,#0f0c29,#1a1560,#0d2137);padding:72px 24px">
+  <div class="ad-inner">
     <div class="center">
-      <div class="section-tag" style="background:rgba(255,107,53,0.2);color:#FF8C5A">The Problem</div>
-      <h2 class="section-title" style="color:#fff">Activity Discovery in India is Broken</h2>
-      <p class="section-sub" style="color:#94a3b8;margin:0 auto">Parents waste hours searching across fragmented platforms. Providers struggle to reach the right families.</p>
+      <div class="stag" style="background:rgba(255,230,109,.15);color:var(--yellow)">Advertisement Concept</div>
+      <h2 class="stitle" style="color:#fff">"Every Child Has A Different Superpower"</h2>
+      <p class="ssub" style="color:#94a3b8;margin:0 auto">Children arrive at the Hobbyo hub — each travelling a different way, each powered by a unique skill they've discovered. The ad ends with all of them converging at one glowing destination: Hobbyo.</p>
     </div>
-    <div class="problem-vs">
-      <div class="problem-col old">
-        <h3>Today: Fragmented &amp; Frustrating</h3>
-        <div class="fragmented-logos">
-          <div class="frag-logo">Google Search</div>
-          <div class="frag-logo">Instagram</div>
-          <div class="frag-logo">WhatsApp Groups</div>
-          <div class="frag-logo">JustDial</div>
-          <div class="frag-logo">Facebook</div>
-          <div class="frag-logo">School Notice Boards</div>
-        </div>
-        <div class="pain-item bad">
-          <svg class="pain-icon x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p class="pain-text">Can't compare prices and quality in one place</p>
-        </div>
-        <div class="pain-item bad">
-          <svg class="pain-icon x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p class="pain-text">No way to know if a provider is trustworthy</p>
-        </div>
-        <div class="pain-item bad">
-          <svg class="pain-icon x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p class="pain-text">Providers have no CRM — manage students on paper</p>
-        </div>
-        <div class="pain-item bad">
-          <svg class="pain-icon x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p class="pain-text">No schedule management or smart recommendations</p>
-        </div>
-        <div class="pain-item bad">
-          <svg class="pain-icon x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-          <p class="pain-text">Providers lose students to direct bypass — no platform loyalty</p>
-        </div>
+    <div class="ad-grid">
+      <div class="ad-card">
+        <span class="ad-anim">🦅</span>
+        <div class="ad-power">The Bird Child</div>
+        <div class="ad-skill">Learned freedom through dance &amp; athletics — now soars above the city toward the Hobbyo hub</div>
+        <div class="ad-arrow">→</div>
       </div>
-      <div class="vs-badge">VS</div>
-      <div class="problem-col new">
+      <div class="ad-card">
+        <span class="ad-anim">✈️</span>
+        <div class="ad-power">The Builder Pilot</div>
+        <div class="ad-skill">Built their own plane through Robotics &amp; STEM classes — flies it proudly to join the hub</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card">
+        <span class="ad-anim">⛸️</span>
+        <div class="ad-power">The Skater</div>
+        <div class="ad-skill">Mastered skating through sports classes — glides effortlessly through Ahmedabad streets</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card">
+        <span class="ad-anim">🕸️</span>
+        <div class="ad-power">The Wall-Climber</div>
+        <div class="ad-skill">Gymnastics &amp; rock climbing turned them into a Spider-kid — swings from building to building</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card">
+        <span class="ad-anim">🚲</span>
+        <div class="ad-power">The Bike Engineer</div>
+        <div class="ad-skill">Built their own electric bike in a STEM workshop — races through the city on their own creation</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card">
+        <span class="ad-anim">🧘</span>
+        <div class="ad-power">The Dhyana Child</div>
+        <div class="ad-skill">Meditation &amp; yoga gave them the power to teleport — appears at the hub in a flash of calm light</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card">
+        <span class="ad-anim">⚽</span>
+        <div class="ad-power">The Runner</div>
+        <div class="ad-skill">Football &amp; athletics made them the fastest kid in Ahmedabad — sprints past every obstacle</div>
+        <div class="ad-arrow">→</div>
+      </div>
+      <div class="ad-card" style="border-color:rgba(255,107,53,.4);background:rgba(255,107,53,.1)">
+        <span class="ad-anim">🎨</span>
+        <div class="ad-power">The Artist</div>
+        <div class="ad-skill">Paints a portal through the air with their brush — steps through it and arrives at Hobbyo</div>
+        <div class="ad-arrow">→</div>
+      </div>
+    </div>
+    <div class="ad-hub">
+      <div class="pkblob"></div>
+      <div style="font-size:3rem;margin-bottom:12px">🌟</div>
+      <h3>They All Arrive at One Place — Hobbyo</h3>
+      <p>Seven children. Seven different superpowers. Seven different paths. But one destination where every interest has a home and every child finds their spark.</p>
+      <div class="ad-taglines">
+        <div class="ad-tl">Hobbyo – Discover. Learn. Grow.</div>
+        <div class="ad-tl">Where Dreams Find Direction.</div>
+        <div class="ad-tl">Every Interest Has A Home.</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 24px">
+      <p style="font-family:'Baloo 2',cursive;font-weight:700;color:#fff;margin-bottom:8px">Director's Note for the Ad</p>
+      <p style="font-size:.85rem;color:#94a3b8;line-height:1.7">Scene opens at dawn over Ahmedabad skyline. Cut to 7 children, each in their world. The bird child dives from a rooftop. The builder starts her plane engine. The skater pushes off. Montage builds with growing music. Camera pulls back to reveal a glowing hub — the Hobbyo logo illuminated. All children converge, high-five, and the screen fills with: <em style="color:#FFE66D">"Every child already has a superpower. They just need the right place to discover it."</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div id="problem" style="background:linear-gradient(135deg,#1a1a2e,#2C3E50);padding:72px 24px">
+  <div class="prob-inner">
+    <div class="center">
+      <div class="stag" style="background:rgba(255,107,53,.2);color:#FF8C5A">The Problem</div>
+      <h2 class="stitle" style="color:#fff">Activity Discovery in India is Broken</h2>
+      <p class="ssub" style="color:#94a3b8;margin:0 auto">Parents waste hours. Providers lose students. No single platform solves the full picture.</p>
+    </div>
+    <div class="prob-vs">
+      <div class="pc old">
+        <h3>Today: Fragmented &amp; Frustrating</h3>
+        <div class="frag">
+          <div class="fl">Google Search</div><div class="fl">Instagram</div><div class="fl">WhatsApp Groups</div>
+          <div class="fl">JustDial</div><div class="fl">Facebook</div><div class="fl">Notice Boards</div>
+        </div>
+        <div class="pi bad"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Can't compare prices, quality or availability in one place</p></div>
+        <div class="pi bad"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>No trust signals — parents don't know if a provider is safe</p></div>
+        <div class="pi bad"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Providers manage students on paper or basic WhatsApp groups</p></div>
+        <div class="pi bad"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>No discovery of what's actually available in your neighbourhood</p></div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pc new">
         <h3>Hobbyo: One Platform for Everything</h3>
-        <div class="pain-item good">
-          <svg class="pain-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p class="pain-text">Unified discovery — search, compare, book all in one place</p>
-        </div>
-        <div class="pain-item good">
-          <svg class="pain-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p class="pain-text">Verified providers with ratings, reviews &amp; safety badges</p>
-        </div>
-        <div class="pain-item good">
-          <svg class="pain-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p class="pain-text">Built-in CRM for providers — attendance, payments, communication</p>
-        </div>
-        <div class="pain-item good">
-          <svg class="pain-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p class="pain-text">AI-powered recommendations based on child profile &amp; schedule</p>
-        </div>
-        <div class="pain-item good">
-          <svg class="pain-icon check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          <p class="pain-text">Platform creates lock-in through CRM dependency and parent trust</p>
-        </div>
+        <div class="pi good"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>Search, compare, book — all in one app, filtered by area and budget</p></div>
+        <div class="pi good"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>Verified badges, CCTV tags, ratings and reviews build instant trust</p></div>
+        <div class="pi good"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>Built-in CRM locks providers in — attendance, payments, communication</p></div>
+        <div class="pi good"><svg class="pi-ico" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><p>AI matches child profile to the right activity, area, time and budget</p></div>
       </div>
     </div>
   </div>
@@ -444,286 +507,210 @@ footer{background:var(--dark);padding:60px 24px 40px;color:#fff}
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="center">
-    <div class="section-tag">How It Works</div>
-    <h2 class="section-title">Simple for Parents. Powerful for Providers.</h2>
-    <p class="section-sub" style="margin:0 auto">From discovering the right activity to managing your child's entire learning journey — Hobbyo makes it effortless.</p>
+    <div class="stag">How It Works</div>
+    <h2 class="stitle">Simple for Families. Powerful for Providers.</h2>
+    <p class="ssub" style="margin:0 auto">Four steps from discovering an interest to building a lifelong passion.</p>
   </div>
   <div class="steps">
-    <div class="step">
-      <div class="step-num s1">1</div>
-      <div class="step-icon">👤</div>
-      <h4>Create Child Profile</h4>
-      <p>Add your child's age, interests, school timings, budget, and preferred areas in Ahmedabad</p>
-    </div>
-    <div class="step">
-      <div class="step-num s2">2</div>
-      <div class="step-icon">✨</div>
-      <h4>Get Smart Recommendations</h4>
-      <p>Hobbyo's engine suggests the best-fit activities, teachers, and events based on the profile</p>
-    </div>
-    <div class="step">
-      <div class="step-num s3">3</div>
-      <div class="step-icon">📅</div>
-      <h4>Book &amp; Manage</h4>
-      <p>Book trials or full batches, manage schedules, receive pickup alerts, and pay seamlessly</p>
-    </div>
-    <div class="step">
-      <div class="step-num s4">4</div>
-      <div class="step-icon">🏆</div>
-      <h4>Track &amp; Grow</h4>
-      <p>Monitor attendance, earn badges, unlock rewards, and explore new activities as your child grows</p>
-    </div>
+    <div class="step"><div class="snum s1">1</div><div style="font-size:2rem;margin-bottom:8px">👤</div><h4>Create Child Profile</h4><p>Age, interests, school timings, budget and preferred Ahmedabad areas stored in one place</p></div>
+    <div class="step"><div class="snum s2">2</div><div style="font-size:2rem;margin-bottom:8px">✨</div><h4>Get Smart Matches</h4><p>Hobbyo recommends best-fit activities, teachers and upcoming events based on the profile</p></div>
+    <div class="step"><div class="snum s3">3</div><div style="font-size:2rem;margin-bottom:8px">📅</div><h4>Book &amp; Manage</h4><p>Book trials or full batches, manage schedules, get pickup alerts, pay seamlessly</p></div>
+    <div class="step"><div class="snum s4">4</div><div style="font-size:2rem;margin-bottom:8px">🏆</div><h4>Track &amp; Grow</h4><p>Monitor attendance, earn badges, unlock rewards, and discover new interests as your child grows</p></div>
   </div>
 </section>
 
-<!-- DISCOVERY -->
-<section id="discover" style="background:linear-gradient(180deg,#fafbff,var(--bg));max-width:100%;padding:80px 24px">
+<!-- DISCOVER -->
+<section id="discover" style="background:linear-gradient(180deg,#fafbff,var(--bg));max-width:100%;padding:72px 24px">
   <div style="max-width:1200px;margin:0 auto">
     <div class="center">
-      <div class="section-tag">Activity Discovery</div>
-      <h2 class="section-title">Find the Perfect Activity in Ahmedabad</h2>
-      <p class="section-sub" style="margin:0 auto 32px">Browse hundreds of verified classes, workshops, camps, and events — filtered exactly for your family's needs.</p>
+      <div class="stag">Activity Discovery</div>
+      <h2 class="stitle">Find the Perfect Activity in Ahmedabad</h2>
+      <p class="ssub" style="margin:0 auto 28px">Hundreds of verified classes, workshops, camps and events — filtered for your family.</p>
     </div>
-    <div class="tabs" style="justify-content:center;margin-bottom:24px">
-      <button class="tab-btn active" onclick="showTab(this,'children')">For Children</button>
-      <button class="tab-btn" onclick="showTab(this,'women')">For Women</button>
-      <button class="tab-btn" onclick="showTab(this,'adults')">For Adults</button>
-      <button class="tab-btn" onclick="showTab(this,'seniors')">For Seniors</button>
+    <div class="tabs" style="justify-content:center;margin-bottom:20px">
+      <button class="tb on" onclick="showTab(this,'children')">For Children</button>
+      <button class="tb" onclick="showTab(this,'women')">For Women</button>
+      <button class="tb" onclick="showTab(this,'adults')">For Adults</button>
+      <button class="tb" onclick="showTab(this,'seniors')">For Seniors</button>
     </div>
-    <div class="filters" style="justify-content:center;margin-bottom:28px">
-      <div class="filter-chip active">All Areas</div>
-      <div class="filter-chip">Satellite</div>
-      <div class="filter-chip">Bopal</div>
-      <div class="filter-chip">Prahlad Nagar</div>
-      <div class="filter-chip">SG Highway</div>
-      <div class="filter-chip">Navrangpura</div>
-      <div class="filter-chip">Budget: Any</div>
-      <div class="filter-chip">Age: Any</div>
-      <div class="filter-chip">Rating: 4+</div>
+    <div class="fchips" style="justify-content:center;margin-bottom:22px">
+      <div class="fc on">All Areas</div><div class="fc">Satellite</div><div class="fc">Bopal</div>
+      <div class="fc">Prahlad Nagar</div><div class="fc">SG Highway</div><div class="fc">Navrangpura</div>
+      <div class="fc">Budget: Any</div><div class="fc">Rating: 4+</div>
     </div>
-    <div id="tab-children" class="activity-grid">
-      <div class="act-card"><div class="act-icon" style="background:rgba(124,58,237,0.1)">🤖</div><div class="act-name">Robotics</div><div class="act-meta">Age 7–15 · Satellite</div><div class="act-price">₹2,500/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(59,130,246,0.1)">💻</div><div class="act-name">Coding</div><div class="act-meta">Age 8–16 · Bopal</div><div class="act-price">₹1,800/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(245,158,11,0.1)">♟️</div><div class="act-name">Chess</div><div class="act-meta">Age 6–14 · Prahlad Nagar</div><div class="act-price">₹800/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(236,72,153,0.1)">🎨</div><div class="act-name">Art &amp; Craft</div><div class="act-meta">Age 5–12 · Navrangpura</div><div class="act-price">₹1,200/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(16,185,129,0.1)">🎵</div><div class="act-name">Music</div><div class="act-meta">Age 6–18 · SG Highway</div><div class="act-price">₹2,000/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(255,107,53,0.1)">💃</div><div class="act-name">Dance</div><div class="act-meta">Age 5–16 · Satellite</div><div class="act-price">₹1,500/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(78,205,196,0.1)">🔬</div><div class="act-name">STEM Lab</div><div class="act-meta">Age 8–14 · Bopal</div><div class="act-price">₹3,000/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(239,68,68,0.1)">⚽</div><div class="act-name">Football</div><div class="act-meta">Age 6–16 · Prahlad Nagar</div><div class="act-price">₹1,000/month</div></div>
+    <div id="tab-children" class="agrid">
+      <div class="ac"><div class="ai" style="background:rgba(124,58,237,.1)">🤖</div><div class="an">Robotics</div><div class="am">Age 7–15 · Satellite</div><div class="apr">₹2,500/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(59,130,246,.1)">💻</div><div class="an">Coding</div><div class="am">Age 8–16 · Bopal</div><div class="apr">₹1,800/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(245,158,11,.1)">♟️</div><div class="an">Chess</div><div class="am">Age 6–14 · Prahlad Nagar</div><div class="apr">₹800/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(236,72,153,.1)">🎨</div><div class="an">Art &amp; Craft</div><div class="am">Age 5–12 · Navrangpura</div><div class="apr">₹1,200/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(16,185,129,.1)">🎵</div><div class="an">Music</div><div class="am">Age 6–18 · SG Highway</div><div class="apr">₹2,000/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(255,107,53,.1)">💃</div><div class="an">Dance</div><div class="am">Age 5–16 · Satellite</div><div class="apr">₹1,500/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(78,205,196,.1)">🔬</div><div class="an">STEM Lab</div><div class="am">Age 8–14 · Bopal</div><div class="apr">₹3,000/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(239,68,68,.1)">⚽</div><div class="an">Football</div><div class="am">Age 6–16 · Prahlad Nagar</div><div class="apr">₹1,000/mo</div></div>
     </div>
-    <div id="tab-women" class="activity-grid" style="display:none">
-      <div class="act-card"><div class="act-icon" style="background:rgba(78,205,196,0.1)">🧘</div><div class="act-name">Yoga</div><div class="act-meta">All Ages · Satellite</div><div class="act-price">₹1,500/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(236,72,153,0.1)">🏃</div><div class="act-name">Pilates</div><div class="act-meta">Adults · Prahlad Nagar</div><div class="act-price">₹2,500/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(16,185,129,0.1)">💚</div><div class="act-name">Wellness</div><div class="act-meta">All Ages · Bopal</div><div class="act-price">₹1,800/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(255,107,53,0.1)">🏋️</div><div class="act-name">Fitness Program</div><div class="act-meta">Adults · SG Highway</div><div class="act-price">₹2,000/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(124,58,237,0.1)">🎨</div><div class="act-name">Hobby Workshops</div><div class="act-meta">Adults · Navrangpura</div><div class="act-price">₹500/session</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(245,158,11,0.1)">🌸</div><div class="act-name">Self-Care Groups</div><div class="act-meta">Adults · Satellite</div><div class="act-price">₹800/month</div></div>
+    <div id="tab-women" class="agrid" style="display:none">
+      <div class="ac"><div class="ai" style="background:rgba(78,205,196,.1)">🧘</div><div class="an">Yoga</div><div class="am">All Ages · Satellite</div><div class="apr">₹1,500/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(236,72,153,.1)">🏃</div><div class="an">Pilates</div><div class="am">Adults · Prahlad Nagar</div><div class="apr">₹2,500/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(16,185,129,.1)">💪</div><div class="an">CrossFit</div><div class="am">Adults · SG Highway</div><div class="apr">₹2,000/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(255,107,53,.1)">🌸</div><div class="an">Wellness Groups</div><div class="am">Adults · Bopal</div><div class="apr">₹800/mo</div></div>
     </div>
-    <div id="tab-adults" class="activity-grid" style="display:none">
-      <div class="act-card"><div class="act-icon" style="background:rgba(239,68,68,0.1)">🏸</div><div class="act-name">Badminton</div><div class="act-meta">Adults · Bopal</div><div class="act-price">₹1,200/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(59,130,246,0.1)">💼</div><div class="act-name">Pro Workshops</div><div class="act-meta">25+ · SG Highway</div><div class="act-price">₹1,500/session</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(16,185,129,0.1)">🏊</div><div class="act-name">Swimming</div><div class="act-meta">All Ages · Satellite</div><div class="act-price">₹2,000/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(255,107,53,0.1)">🤝</div><div class="act-name">Networking Events</div><div class="act-meta">Professionals · Navrangpura</div><div class="act-price">₹300/event</div></div>
+    <div id="tab-adults" class="agrid" style="display:none">
+      <div class="ac"><div class="ai" style="background:rgba(239,68,68,.1)">🏸</div><div class="an">Badminton</div><div class="am">Adults · Bopal</div><div class="apr">₹1,200/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(59,130,246,.1)">🎯</div><div class="an">Paintball</div><div class="am">18+ · SG Highway</div><div class="apr">₹600/session</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(16,185,129,.1)">🏊</div><div class="an">Swimming</div><div class="am">All Ages · Satellite</div><div class="apr">₹2,000/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(245,158,11,.1)">🏓</div><div class="an">Table Tennis</div><div class="am">All Ages · Navrangpura</div><div class="apr">₹500/mo</div></div>
     </div>
-    <div id="tab-seniors" class="activity-grid" style="display:none">
-      <div class="act-card"><div class="act-icon" style="background:rgba(78,205,196,0.1)">🧘</div><div class="act-name">Senior Yoga</div><div class="act-meta">55+ · Satellite</div><div class="act-price">₹800/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(245,158,11,0.1)">☕</div><div class="act-name">Social Meetups</div><div class="act-meta">60+ · Navrangpura</div><div class="act-price">Free</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(124,58,237,0.1)">🎓</div><div class="act-name">Learning Programs</div><div class="act-meta">55+ · Bopal</div><div class="act-price">₹500/month</div></div>
-      <div class="act-card"><div class="act-icon" style="background:rgba(16,185,129,0.1)">🌿</div><div class="act-name">Wellness Retreats</div><div class="act-meta">All Seniors · SG Highway</div><div class="act-price">₹2,500/retreat</div></div>
+    <div id="tab-seniors" class="agrid" style="display:none">
+      <div class="ac"><div class="ai" style="background:rgba(78,205,196,.1)">🧘</div><div class="an">Senior Yoga</div><div class="am">55+ · Satellite</div><div class="apr">₹800/mo</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(245,158,11,.1)">☕</div><div class="an">Social Meetups</div><div class="am">60+ · Navrangpura</div><div class="apr">Free</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(16,185,129,.1)">🌿</div><div class="an">Ayurvedic Retreats</div><div class="am">55+ · Bopal</div><div class="apr">₹2,500/retreat</div></div>
+      <div class="ac"><div class="ai" style="background:rgba(124,58,237,.1)">🎓</div><div class="an">Learning Programs</div><div class="am">55+ · SG Highway</div><div class="apr">₹500/mo</div></div>
     </div>
   </div>
 </section>
 
-<!-- ACTIVITY PACKS -->
+<!-- PACKS -->
 <section id="packs">
   <div class="center">
-    <div class="section-tag">Activity Packs</div>
-    <h2 class="section-title">Explore Before You Commit</h2>
-    <p class="section-sub" style="margin:0 auto">Try multiple activities at a bundled price. Perfect for discovering your child's hidden superpower.</p>
+    <div class="stag">Activity Packs</div>
+    <h2 class="stitle">Explore Before You Commit</h2>
+    <p class="ssub" style="margin:0 auto">Bundle pricing secures upfront payment for providers. Parents get more value. Win-win.</p>
   </div>
-  <div class="packs-grid">
-    <div class="pack-card explorer">
-      <div class="pack-blob"></div>
-      <div class="pack-badge">MOST POPULAR</div>
-      <div class="pack-title">Explorer Pack</div>
-      <div class="pack-desc">Let your child try 4 different activities and discover what sparks their passion</div>
-      <div class="pack-items">
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Art Trial – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Dance Trial – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Chess Trial – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Robotics Trial – 2 Sessions</div>
-      </div>
-      <div class="pack-price"><div class="amount">₹999</div><div class="period">/ pack · 8 sessions</div></div>
-      <button class="pack-cta">Get Explorer Pack</button>
-    </div>
-    <div class="pack-card stem">
-      <div class="pack-blob"></div>
-      <div class="pack-badge">STEM FOCUS</div>
-      <div class="pack-title">STEM Pack</div>
-      <div class="pack-desc">Designed for curious minds who love science, technology, and building things</div>
-      <div class="pack-items">
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Robotics – 3 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Coding – 3 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Astronomy – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Science Lab – 2 Sessions</div>
-      </div>
-      <div class="pack-price"><div class="amount">₹1,499</div><div class="period">/ pack · 10 sessions</div></div>
-      <button class="pack-cta">Get STEM Pack</button>
-    </div>
-    <div class="pack-card sports">
-      <div class="pack-blob"></div>
-      <div class="pack-badge">ACTIVE KIDS</div>
-      <div class="pack-title">Sports Pack</div>
-      <div class="pack-desc">For energetic kids who love to move — try 4 sports and find their game</div>
-      <div class="pack-items">
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Football – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Swimming – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Tennis – 2 Sessions</div>
-        <div class="pack-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Badminton – 2 Sessions</div>
-      </div>
-      <div class="pack-price"><div class="amount">₹1,199</div><div class="period">/ pack · 8 sessions</div></div>
-      <button class="pack-cta">Get Sports Pack</button>
-    </div>
+  <div class="packs">
+    <div class="pk ex"><div class="pkblob"></div><div class="pkb">MOST POPULAR</div><div class="pkt">Explorer Pack</div><div class="pkd">Try 4 activities before committing. Perfect for discovering your child's hidden talent.</div><div class="pki"><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Art Trial – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Dance Trial – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Chess Trial – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Robotics Trial – 2 Sessions</div></div><div class="pkp">₹999 <span class="pkps">/ 8 sessions</span></div><button class="pkbtn">Get Explorer Pack</button></div>
+    <div class="pk st"><div class="pkblob"></div><div class="pkb">STEM FOCUS</div><div class="pkt">STEM Pack</div><div class="pkd">For curious minds who love science, technology and building things that actually work.</div><div class="pki"><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Robotics – 3 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Coding – 3 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Astronomy – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Science Lab – 2 Sessions</div></div><div class="pkp">₹1,499 <span class="pkps">/ 10 sessions</span></div><button class="pkbtn">Get STEM Pack</button></div>
+    <div class="pk sp"><div class="pkblob"></div><div class="pkb">ACTIVE KIDS</div><div class="pkt">Sports Pack</div><div class="pkd">For energetic kids who love to move. Try 4 sports and find their game for life.</div><div class="pki"><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Football – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Swimming – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Tennis – 2 Sessions</div><div><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Badminton – 2 Sessions</div></div><div class="pkp">₹1,199 <span class="pkps">/ 8 sessions</span></div><button class="pkbtn">Get Sports Pack</button></div>
   </div>
 </section>
 
-<!-- SMART RECOMMENDATIONS -->
-<section id="smart" style="background:linear-gradient(135deg,#FFFBF7,#F0FFFE);max-width:100%;padding:80px 24px">
+<!-- ONE-TIME EVENTS -->
+<section id="events" style="background:linear-gradient(135deg,#FFFBF7,#F0FFFE);max-width:100%;padding:72px 24px">
   <div style="max-width:1200px;margin:0 auto">
     <div class="center">
-      <div class="section-tag">Smart Recommendations</div>
-      <h2 class="section-title">The Right Activity, At the Right Time</h2>
-      <p class="section-sub" style="margin:0 auto">Hobbyo analyses your child's profile and matches them to activities with the highest learning potential and fit score.</p>
+      <div class="stag">One-Time Events</div>
+      <h2 class="stitle">What's Happening in Ahmedabad This Weekend?</h2>
+      <p class="ssub" style="margin:0 auto 10px">Magicians, trekking trips, science fairs, summer camps — providers list events, Hobbyo earns per signup or charges listing/ad fees.</p>
+      <p style="font-size:.82rem;color:var(--orange);font-weight:600;margin-bottom:32px">Revenue model: ₹500–5,000 listing fee + 5–10% per registration</p>
     </div>
-    <div class="rec-layout">
+    <div class="events-g">
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#7C3AED,#9C5CF7)">🎩</div><div class="evb"><div class="evtype">Magic Show</div><div class="evname">The Great Zarko — Live Magic</div><div class="evmeta">Sat 15 Jun · CG Road · Age 4–12</div><div class="evprice">₹299/child</div><div class="evbtns"><button class="evbtn">Book Now</button><div class="evspots">32 spots left</div></div></div></div>
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#10B981,#34D399)">🏔️</div><div class="evb"><div class="evtype">Trekking Trip</div><div class="evname">Pavagadh Kids Trek</div><div class="evmeta">22–23 Jun · Departs Ahmedabad · Age 8+</div><div class="evprice">₹1,800/child</div><div class="evbtns"><button class="evbtn">Book Now</button><div class="evspots">18 spots left</div></div></div></div>
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#FF6B35,#FF8C5A)">🔬</div><div class="evb"><div class="evtype">Science Fair</div><div class="evname">Ahmedabad STEM Expo 2026</div><div class="evmeta">29 Jun · Science City · Age 6–16</div><div class="evprice">₹150/child</div><div class="evbtns"><button class="evbtn">Book Now</button><div class="evspots">120 spots left</div></div></div></div>
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#F59E0B,#FBBF24)">📖</div><div class="evb"><div class="evtype">Storytelling</div><div class="evname">Tales &amp; Imagination Session</div><div class="evmeta">Sun 8 Jun · Satellite · Age 3–9</div><div class="evprice">₹199/child</div><div class="evbtns"><button class="evbtn">Book Now</button><div class="evspots">15 spots left</div></div></div></div>
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#EC4899,#F9A8D4)">☀️</div><div class="evb"><div class="evtype">Summer Camp</div><div class="evname">HobbyoCamp 2026 — 3 Weeks</div><div class="evmeta">1–21 Jul · Bopal · Age 6–14</div><div class="evprice">₹4,500/child</div><div class="evbtns"><button class="evbtn">Enrol Now</button><div class="evspots">40 spots left</div></div></div></div>
+      <div class="evc"><div class="evtop" style="background:linear-gradient(135deg,#3B82F6,#60A5FA)">🤝</div><div class="evb"><div class="evtype">Meet &amp; Greet</div><div class="evname">Seniors Social Circle — June</div><div class="evmeta">Every Sun · Navrangpura · 60+</div><div class="evprice">Free Entry</div><div class="evbtns"><button class="evbtn">Register</button><div class="evspots">Open seats</div></div></div></div>
+    </div>
+  </div>
+</section>
+<!-- SMART REC -->
+<section id="smart" style="background:linear-gradient(135deg,#FFFBF7,#F0FFFE);max-width:100%;padding:72px 24px">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="center">
+      <div class="stag">Smart Recommendations</div>
+      <h2 class="stitle">The Right Activity, At the Right Time</h2>
+      <p class="ssub" style="margin:0 auto">Profile-based AI matching — schedule, location, budget and interests all factored in.</p>
+    </div>
+    <div class="rl">
       <div>
-        <div class="profile-card">
-          <div class="profile-avatar">👦</div>
-          <div class="profile-name">Arjun Mehta</div>
-          <div class="profile-meta">Age 10 · Class 5, DPS Satellite · Ahmedabad</div>
-          <div class="profile-tags">
-            <div class="profile-tag tag-orange">Science</div>
-            <div class="profile-tag tag-teal">Building</div>
-            <div class="profile-tag tag-purple">Problem Solving</div>
-          </div>
-          <div class="profile-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Available: Mon, Wed, Fri after 4 PM
-          </div>
-          <div class="profile-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Prefers: Within 5 km of Satellite
-          </div>
-          <div class="profile-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Budget: ₹1,500–3,000/month
-          </div>
+        <div class="prof">
+          <div class="pav">👦</div>
+          <div class="pn">Arjun Mehta</div>
+          <div class="pm">Age 10 · Class 5, DPS Satellite · Ahmedabad</div>
+          <div class="ptags"><div class="pt to">Science</div><div class="pt tt">Building</div><div class="pt tp">Problem Solving</div></div>
+          <div class="pd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Available: Mon, Wed, Fri after 4 PM</div>
+          <div class="pd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Within 5 km of Satellite</div>
+          <div class="pd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Budget: ₹1,500–3,000/month</div>
         </div>
-        <div style="margin-top:16px;padding:16px;background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
-          <div class="ai-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-            AI-Powered Match Engine
-          </div>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.5">Based on Arjun's interests in science and building, his available schedule, location, and budget — Hobbyo found 3 high-confidence matches.</p>
+        <div style="margin-top:14px;padding:14px;background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)">
+          <div class="aibadge">✨ AI-Powered Match Engine</div>
+          <p style="font-size:.83rem;color:var(--muted);line-height:1.5">Hobbyo analyses interests, schedule, location and budget to rank activities by fit score.</p>
         </div>
       </div>
-      <div>
-        <div class="rec-cards">
-          <div class="rec-item">
-            <div class="rec-icon" style="background:rgba(124,58,237,0.1)">🤖</div>
-            <div class="rec-info">
-              <div class="rec-name">Robotics with Arduino</div>
-              <div class="rec-provider">TechKids Academy · Satellite · Mon &amp; Wed 4:30 PM</div>
-              <div class="rec-match">98% Match</div>
-            </div>
-            <div style="text-align:right">
-              <div class="rec-price">₹2,500/mo</div>
-              <div class="rec-area">⭐ 4.9 · 120 students</div>
-            </div>
-          </div>
-          <div class="rec-item">
-            <div class="rec-icon" style="background:rgba(59,130,246,0.1)">💻</div>
-            <div class="rec-info">
-              <div class="rec-name">Python &amp; Game Dev</div>
-              <div class="rec-provider">CodeKraft Studio · Bopal · Fri 5:00 PM</div>
-              <div class="rec-match">94% Match</div>
-            </div>
-            <div style="text-align:right">
-              <div class="rec-price">₹1,800/mo</div>
-              <div class="rec-area">⭐ 4.7 · 85 students</div>
-            </div>
-          </div>
-          <div class="rec-item">
-            <div class="rec-icon" style="background:rgba(78,205,196,0.1)">🔬</div>
-            <div class="rec-info">
-              <div class="rec-name">STEM Innovation Lab</div>
-              <div class="rec-provider">BrainSpark · Prahlad Nagar · Sat 10:00 AM</div>
-              <div class="rec-match">91% Match</div>
-            </div>
-            <div style="text-align:right">
-              <div class="rec-price">₹3,000/mo</div>
-              <div class="rec-area">⭐ 4.8 · 60 students</div>
-            </div>
-          </div>
-          <div style="margin-top:16px;padding:16px;background:rgba(255,230,109,0.15);border:2px solid rgba(255,230,109,0.4);border-radius:16px">
-            <p style="font-size:0.85rem;color:var(--dark);font-weight:600;margin-bottom:4px">💡 Demand Insight</p>
-            <p style="font-size:0.82rem;color:var(--muted)">50 parents in Satellite recently requested a Pottery class. Hobbyo is sourcing an instructor. Interested? <a href="#" style="color:var(--orange);font-weight:600">Join the waitlist →</a></p>
-          </div>
+      <div class="recs">
+        <div class="ri"><div class="rico" style="background:rgba(124,58,237,.1)">🤖</div><div class="rin"><div class="rn">Robotics with Arduino</div><div class="rp">TechKids Academy · Satellite · Mon &amp; Wed 4:30 PM</div><div class="rm">98% Match</div></div><div style="text-align:right"><div class="rprice">₹2,500/mo</div><div class="rarea">⭐ 4.9 · 120 students</div></div></div>
+        <div class="ri"><div class="rico" style="background:rgba(59,130,246,.1)">💻</div><div class="rin"><div class="rn">Python &amp; Game Dev</div><div class="rp">CodeKraft Studio · Bopal · Fri 5:00 PM</div><div class="rm">94% Match</div></div><div style="text-align:right"><div class="rprice">₹1,800/mo</div><div class="rarea">⭐ 4.7 · 85 students</div></div></div>
+        <div class="ri"><div class="rico" style="background:rgba(78,205,196,.1)">🔬</div><div class="rin"><div class="rn">STEM Innovation Lab</div><div class="rp">BrainSpark · Prahlad Nagar · Sat 10:00 AM</div><div class="rm">91% Match</div></div><div style="text-align:right"><div class="rprice">₹3,000/mo</div><div class="rarea">⭐ 4.8 · 60 students</div></div></div>
+        <div style="padding:14px;background:rgba(255,230,109,.12);border:2px solid rgba(255,230,109,.35);border-radius:14px">
+          <p style="font-size:.83rem;font-weight:600;color:var(--dark);margin-bottom:4px">💡 Demand Insight</p>
+          <p style="font-size:.8rem;color:var(--muted)">50 parents in Satellite requested Pottery. Hobbyo is sourcing an instructor and venue — batch opens when 30 register. <a href="#" style="color:var(--orange);font-weight:600">Join waitlist →</a></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROVIDER DASHBOARD -->
-<div id="providers" style="background:linear-gradient(135deg,#f8fafc,#f0fffe);padding:80px 24px">
-  <div class="dash-inner">
+<!-- PREMIUM -->
+<div class="premwrap" id="premium">
+  <div class="preminner">
     <div class="center">
-      <div class="section-tag">Provider CRM</div>
-      <h2 class="section-title">Your Complete Studio Management Tool</h2>
-      <p class="section-sub" style="margin:0 auto">Hobbyo gives every teacher and activity provider a powerful CRM — free with listing. Manage students, track attendance, collect payments, and communicate with parents effortlessly.</p>
+      <div class="stag" style="background:rgba(255,230,109,.15);color:var(--yellow)">Premium Experience</div>
+      <h2 class="stitle" style="color:#fff">Better Attention. Better Outcomes. Total Trust.</h2>
+      <p class="ssub" style="color:#94a3b8;margin:0 auto">Premium on Hobbyo is marketed around safety, quality and outcomes — not wealth. But yes, parents who choose premium naturally find themselves among families who are deeply invested in their child's growth.</p>
     </div>
-    <div class="kpi-row" style="margin-top:40px;max-width:900px;margin-left:auto;margin-right:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
-      <div class="kpi"><div class="kpi-val" style="color:var(--orange)">42</div><div class="kpi-label">Active Students</div></div>
-      <div class="kpi"><div class="kpi-val" style="color:var(--teal)">6</div><div class="kpi-label">Batches Running</div></div>
-      <div class="kpi"><div class="kpi-val" style="color:var(--green)">₹94k</div><div class="kpi-label">Monthly Revenue</div></div>
-      <div class="kpi"><div class="kpi-val" style="color:var(--purple)">96%</div><div class="kpi-label">Attendance Rate</div></div>
-      <div class="kpi"><div class="kpi-val" style="color:#f59e0b">4.9</div><div class="kpi-label">Avg Rating</div></div>
+    <div class="prem-g">
+      <div class="premc"><div class="vbadge">VERIFIED</div><div class="premi" style="background:rgba(34,197,94,.1)">✅</div><div class="premt">Verified Providers</div><div class="premd">Background checked, document verified, and reviewed by Hobbyo trust team before premium badge is issued</div></div>
+      <div class="premc"><div class="premi" style="background:rgba(59,130,246,.1)">📹</div><div class="premt">CCTV-Enabled Facilities</div><div class="premd">All premium venues have CCTV coverage. Parents can request footage if ever concerned about their child's safety</div></div>
+      <div class="premc"><div class="premi" style="background:rgba(78,205,196,.1)">❄️</div><div class="premt">AC Facilities</div><div class="premd">Climate-controlled learning environments ensure children focus on the activity — not Ahmedabad summers</div></div>
+      <div class="premc"><div class="premi" style="background:rgba(255,107,53,.1)">🍱</div><div class="premt">One-Time Food Included</div><div class="premd">A healthy snack or light meal is included in premium sessions — one less thing for working parents to organise</div></div>
+      <div class="premc"><div class="premi" style="background:rgba(124,58,237,.1)">👥</div><div class="premt">Premium Seating &amp; Small Batches</div><div class="premd">Max 8–10 students. Dedicated seating for each child. Individual attention that regular batches of 25+ simply can't offer</div></div>
+      <div class="premc"><div class="premi" style="background:rgba(245,158,11,.1)">⚡</div><div class="premt">Priority Booking</div><div class="premd">Premium members get 48-hour early access to new batches, summer camps and popular workshops before they fill up</div></div>
     </div>
-    <div class="dash-layout">
+    <div class="prem-angle">
+      <h4>How to Market Premium Without Discriminating</h4>
+      <p>Frame it as: <strong style="color:#FFE66D">"Your child deserves the same individual attention as a private lesson — at a batch price."</strong> Emphasise smaller class sizes (better outcomes), verified safety (peace of mind), and meal inclusion (convenience for busy parents). The social network effect — meeting other engaged, ambitious families — is a natural byproduct you don't need to market explicitly. Families will discover and appreciate it themselves. This is how Kumon and British schools market — on outcomes, never on class.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROVIDER DASHBOARD -->
+<div class="dashwrap" id="providers">
+  <div class="di">
+    <div class="center">
+      <div class="stag">Provider CRM</div>
+      <h2 class="stitle">Your Complete Studio in One Dashboard</h2>
+      <p class="ssub" style="margin:0 auto">The CRM is Hobbyo's lock-in mechanism. Once a provider manages students, attendance and payments here — they won't leave for a direct relationship. The data lives on Hobbyo.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="kpiv" style="color:var(--orange)">42</div><div class="kpil">Active Students</div></div>
+      <div class="kpi"><div class="kpiv" style="color:var(--teal)">6</div><div class="kpil">Batches Running</div></div>
+      <div class="kpi"><div class="kpiv" style="color:var(--green)">₹94k</div><div class="kpil">Monthly Revenue</div></div>
+      <div class="kpi"><div class="kpiv" style="color:var(--purple)">96%</div><div class="kpil">Attendance Rate</div></div>
+      <div class="kpi"><div class="kpiv" style="color:#f59e0b">4.9</div><div class="kpil">Avg Rating</div></div>
+    </div>
+    <div class="dl">
       <div>
-        <div class="dash-widget">
-          <div class="widget-title">Today's Attendance — Robotics Batch A (4:30 PM)</div>
-          <div class="attend-row"><div class="attend-avatar" style="background:var(--orange)">AM</div><div class="attend-name">Arjun Mehta</div><span class="attend-status status-present">Present</span></div>
-          <div class="attend-row"><div class="attend-avatar" style="background:var(--teal)">RS</div><div class="attend-name">Riya Shah</div><span class="attend-status status-present">Present</span></div>
-          <div class="attend-row"><div class="attend-avatar" style="background:var(--purple)">KP</div><div class="attend-name">Krish Patel</div><span class="attend-status status-absent">Absent</span></div>
-          <div class="attend-row"><div class="attend-avatar" style="background:var(--green)">DA</div><div class="attend-name">Dev Agarwal</div><span class="attend-status status-present">Present</span></div>
-          <div class="attend-row"><div class="attend-avatar" style="background:#f59e0b">SM</div><div class="attend-name">Sneha Modi</div><span class="attend-status status-present">Present</span></div>
+        <div class="dw">
+          <div class="wt">Today's Attendance — Robotics Batch A (4:30 PM)</div>
+          <div class="ar"><div class="av" style="background:var(--orange)">AM</div><div class="aname">Arjun Mehta</div><span class="ast sp">Present</span></div>
+          <div class="ar"><div class="av" style="background:var(--teal)">RS</div><div class="aname">Riya Shah</div><span class="ast sp">Present</span></div>
+          <div class="ar"><div class="av" style="background:var(--purple)">KP</div><div class="aname">Krish Patel</div><span class="ast sa">Absent</span></div>
+          <div class="ar"><div class="av" style="background:var(--green)">DA</div><div class="aname">Dev Agarwal</div><span class="ast sp">Present</span></div>
+          <div class="ar"><div class="av" style="background:#f59e0b">SM</div><div class="aname">Sneha Modi</div><span class="ast sp">Present</span></div>
         </div>
-        <div class="dash-widget" style="margin-top:20px">
-          <div class="widget-title">June 2026 — Payment Status</div>
-          <div class="payment-row"><div class="payment-name">Arjun Mehta</div><div class="payment-amount amt-paid">₹2,500 Paid</div></div>
-          <div class="payment-row"><div class="payment-name">Riya Shah</div><div class="payment-amount amt-paid">₹2,500 Paid</div></div>
-          <div class="payment-row"><div class="payment-name">Krish Patel</div><div class="payment-amount amt-due">₹2,500 Due</div></div>
-          <div class="payment-row"><div class="payment-name">Dev Agarwal</div><div class="payment-amount amt-paid">₹2,500 Paid</div></div>
-          <div style="margin-top:12px;padding:10px 14px;background:rgba(255,107,53,0.06);border-radius:10px;font-size:0.82rem;color:var(--muted)">1 fee reminder sent automatically to Krish's parents via Hobbyo</div>
+        <div class="dw" style="margin-top:18px">
+          <div class="wt">June 2026 — Payments</div>
+          <div class="pr"><div class="prn">Arjun Mehta</div><div class="pra paid">₹2,500 Paid</div></div>
+          <div class="pr"><div class="prn">Riya Shah</div><div class="pra paid">₹2,500 Paid</div></div>
+          <div class="pr"><div class="prn">Krish Patel</div><div class="pra due">₹2,500 Due</div></div>
+          <div class="pr"><div class="prn">Dev Agarwal</div><div class="pra paid">₹2,500 Paid</div></div>
+          <div style="margin-top:10px;padding:9px 12px;background:rgba(255,107,53,.06);border-radius:9px;font-size:.8rem;color:var(--muted)">Fee reminder auto-sent to Krish's parents via Hobbyo</div>
         </div>
       </div>
       <div>
-        <div class="dash-widget">
-          <div class="widget-title">Parent Notifications &amp; Pickup Alerts</div>
-          <div class="notif-item"><div class="notif-dot" style="background:var(--green)"></div><div><div class="notif-text">Arjun Mehta has completed today's Robotics class and is ready for pickup at TechKids Academy, Satellite.</div><div class="notif-time">Today, 6:00 PM · Sent to Mrs. Mehta</div></div></div>
-          <div class="notif-item"><div class="notif-dot" style="background:var(--orange)"></div><div><div class="notif-text">Reminder: June fees for Riya Shah are due on 5th June. Pay via Hobbyo for instant confirmation.</div><div class="notif-time">Yesterday · Auto-reminder</div></div></div>
-          <div class="notif-item"><div class="notif-dot" style="background:var(--purple)"></div><div><div class="notif-text">Schedule change: Thursday class moved to Friday 4:30 PM due to venue maintenance. Parents notified.</div><div class="notif-time">2 days ago · Broadcast</div></div></div>
-          <div class="notif-item"><div class="notif-dot" style="background:var(--teal)"></div><div><div class="notif-text">Summer Camp registration is now open. 12 parents from your existing batches have been notified.</div><div class="notif-time">3 days ago · Campaign</div></div></div>
+        <div class="dw">
+          <div class="wt">Parent Notifications &amp; Pickup Alerts</div>
+          <div class="ni"><div class="nd" style="background:var(--green)"></div><div><div class="nt">Arjun Mehta has completed today's Robotics class and is ready for pickup at TechKids Academy, Satellite.</div><div class="ntm">Today, 6:00 PM · Sent to Mrs. Mehta</div></div></div>
+          <div class="ni"><div class="nd" style="background:var(--orange)"></div><div><div class="nt">June fee reminder: Krish Patel — ₹2,500 due by 5th June. Pay via Hobbyo for instant confirmation.</div><div class="ntm">Yesterday · Auto-reminder</div></div></div>
+          <div class="ni"><div class="nd" style="background:var(--purple)"></div><div><div class="nt">Schedule change: Thursday batch moved to Friday 4:30 PM. All 12 parents notified instantly.</div><div class="ntm">2 days ago · Broadcast</div></div></div>
+          <div class="ni"><div class="nd" style="background:var(--teal)"></div><div><div class="nt">Summer Camp 2026 registration open. 12 existing batch parents have been notified with priority access.</div><div class="ntm">3 days ago · Campaign</div></div></div>
         </div>
-        <div class="dash-widget" style="margin-top:20px;background:linear-gradient(135deg,#2C3E50,#3d5166);color:#fff">
-          <div class="widget-title" style="color:#94a3b8">Why Providers Choose Hobbyo CRM</div>
-          <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
-            <div style="display:flex;gap:10px;align-items:center;font-size:0.88rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Free with every provider listing</span></div>
-            <div style="display:flex;gap:10px;align-items:center;font-size:0.88rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>No more WhatsApp chaos — structured communication</span></div>
-            <div style="display:flex;gap:10px;align-items:center;font-size:0.88rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Auto fee reminders reduce payment delays by 60%</span></div>
-            <div style="display:flex;gap:10px;align-items:center;font-size:0.88rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Pickup alerts build parent trust &amp; safety confidence</span></div>
+        <div class="dw" style="margin-top:18px;background:linear-gradient(135deg,#2C3E50,#3d5166)">
+          <div class="wt" style="color:#94a3b8">Why Providers Won't Leave</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:6px">
+            <div style="display:flex;gap:9px;align-items:center;font-size:.85rem;color:#e2e8f0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>All student data lives on Hobbyo — not on phone contacts</div>
+            <div style="display:flex;gap:9px;align-items:center;font-size:.85rem;color:#e2e8f0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Payment records, attendance history are platform-locked</div>
+            <div style="display:flex;gap:9px;align-items:center;font-size:.85rem;color:#e2e8f0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Parents trust and expect Hobbyo notifications for safety</div>
+            <div style="display:flex;gap:9px;align-items:center;font-size:.85rem;color:#e2e8f0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>New student discovery only available via Hobbyo listings</div>
           </div>
         </div>
       </div>
@@ -731,192 +718,150 @@ footer{background:var(--dark);padding:60px 24px 40px;color:#fff}
   </div>
 </div>
 
-<!-- PREMIUM -->
-<section id="premium">
-  <div class="center">
-    <div class="section-tag">Premium Experience</div>
-    <h2 class="section-title">Safety. Attention. Results.</h2>
-    <p class="section-sub" style="margin:0 auto">Premium on Hobbyo is not about luxury. It's about better outcomes, smaller batches, and total parent peace of mind.</p>
-  </div>
-  <div class="premium-grid">
-    <div class="prem-card featured">
-      <div class="verified-badge">VERIFIED</div>
-      <div class="prem-icon" style="background:rgba(34,197,94,0.1)">✅</div>
-      <div class="prem-title">Verified Providers</div>
-      <div class="prem-desc">Background checked, document verified, and reviewed by the Hobbyo trust team before being listed as Premium</div>
-    </div>
-    <div class="prem-card">
-      <div class="prem-icon" style="background:rgba(59,130,246,0.1)">📹</div>
-      <div class="prem-title">CCTV-Enabled Facilities</div>
-      <div class="prem-desc">Premium venues have CCTV coverage with optional parent-view access for added peace of mind during sessions</div>
-    </div>
-    <div class="prem-card">
-      <div class="prem-icon" style="background:rgba(78,205,196,0.1)">❄️</div>
-      <div class="prem-title">AC Facilities</div>
-      <div class="prem-desc">Comfortable, climate-controlled learning environments so children can focus on learning, not the heat</div>
-    </div>
-    <div class="prem-card">
-      <div class="prem-icon" style="background:rgba(255,107,53,0.1)">👥</div>
-      <div class="prem-title">Smaller Batches</div>
-      <div class="prem-desc">Max 8–10 students per batch ensures individual attention, better skill development, and faster progress</div>
-    </div>
-    <div class="prem-card">
-      <div class="prem-icon" style="background:rgba(124,58,237,0.1)">📱</div>
-      <div class="prem-title">Real-Time Parent Updates</div>
-      <div class="prem-desc">Weekly progress reports, attendance alerts, and pickup notifications keep parents fully in the loop</div>
-    </div>
-    <div class="prem-card">
-      <div class="prem-icon" style="background:rgba(245,158,11,0.1)">⚡</div>
-      <div class="prem-title">Priority Booking</div>
-      <div class="prem-desc">Hobbyo members get 48-hour early access to new batches, summer camps, and popular workshops before they fill up</div>
-    </div>
-  </div>
-</section>
-
-<!-- MEMBERSHIP & REWARDS -->
-<section id="membership" style="background:linear-gradient(135deg,#f8fafc,#fff8f3);max-width:100%;padding:80px 24px">
-  <div style="max-width:1200px;margin:0 auto">
+<!-- MEMBERSHIP -->
+<div class="memwrap" id="membership">
+  <div class="meminner">
     <div class="center">
-      <div class="section-tag">Membership &amp; Rewards</div>
-      <h2 class="section-title">Grow Together. Get Rewarded.</h2>
-      <p class="section-sub" style="margin:0 auto">An annual membership that pays for itself in the first month. Plus a badge system that celebrates every step of your child's journey.</p>
+      <div class="stag">Membership &amp; Rewards</div>
+      <h2 class="stitle">Grow Together. Get Rewarded.</h2>
+      <p class="ssub" style="margin:0 auto">Annual membership that pays for itself in month one. Plus badges that celebrate every step of your child's journey.</p>
     </div>
-    <div class="membership-layout">
-      <div class="mem-card">
-        <div class="section-tag" style="background:rgba(255,230,109,0.2);color:var(--yellow)">Hobbyo Annual Pass</div>
-        <div class="mem-price">₹999<span>/year</span></div>
-        <p style="color:rgba(255,255,255,0.7);font-size:0.88rem">Less than ₹84/month for your family</p>
-        <div class="mem-benefits">
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Early access to new batches &amp; summer camps</div>
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>10% discount on all activity packs</div>
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Priority registration for popular workshops</div>
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Access to exclusive member-only events</div>
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Expert activity recommendations by age</div>
-          <div class="mem-benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>₹500 welcome credit on joining</div>
+    <div class="meml">
+      <div class="memc">
+        <div class="stag" style="background:rgba(255,230,109,.2);color:var(--yellow)">Hobbyo Annual Pass</div>
+        <div class="memp">₹999<span>/year</span></div>
+        <p style="color:rgba(255,255,255,.7);font-size:.85rem">Less than ₹84/month for your whole family</p>
+        <div class="membs">
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Early access to new batches &amp; summer camps</div>
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>10% discount on all activity packs</div>
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Priority registration for popular workshops</div>
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Exclusive member-only events &amp; meetups</div>
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Expert activity recommendations by age group</div>
+          <div class="memb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFE66D" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>₹500 welcome credit on joining</div>
         </div>
-        <button style="background:var(--yellow);color:var(--dark);border:none;padding:14px 32px;border-radius:30px;font-weight:800;font-size:1rem;cursor:pointer;margin-top:28px;width:100%;font-family:'Baloo 2',cursive;transition:0.2s">Join Hobbyo Pass</button>
+        <button style="background:var(--yellow);color:var(--dark);border:none;padding:13px 28px;border-radius:28px;font-weight:800;font-size:.95rem;cursor:pointer;margin-top:24px;width:100%;font-family:'Baloo 2',cursive">Join Hobbyo Pass Today</button>
       </div>
       <div>
-        <h3 style="font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:20px">Achievement Badges</h3>
-        <div class="badges-grid">
-          <div class="badge-card"><div class="badge-icon">🗺️</div><div class="badge-name">Explorer Badge</div><div class="badge-desc">Tried 4+ different activity categories</div></div>
-          <div class="badge-card"><div class="badge-icon">🤖</div><div class="badge-name">STEM Champion</div><div class="badge-desc">Completed 3 months of STEM activities</div></div>
-          <div class="badge-card"><div class="badge-icon">⭐</div><div class="badge-name">Sports Star</div><div class="badge-desc">Active in a sport for 6+ months</div></div>
-          <div class="badge-card"><div class="badge-icon">🎨</div><div class="badge-name">Creative Genius</div><div class="badge-desc">Showcased work at a Hobbyo event</div></div>
+        <h3 style="font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:18px">Achievement Badges</h3>
+        <div class="badges">
+          <div class="badge"><div class="bdi">🗺️</div><div class="bdn">Explorer</div><div class="bdd">Tried 4+ activity categories</div></div>
+          <div class="badge"><div class="bdi">🤖</div><div class="bdn">STEM Champion</div><div class="bdd">3 months of STEM activities</div></div>
+          <div class="badge"><div class="bdi">⭐</div><div class="bdn">Sports Star</div><div class="bdd">Active in a sport for 6+ months</div></div>
+          <div class="badge"><div class="bdi">🎨</div><div class="bdn">Creative Genius</div><div class="bdd">Showcased work at Hobbyo event</div></div>
         </div>
-        <div style="background:#fff;border-radius:16px;padding:20px;margin-top:16px;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
-          <p style="font-weight:700;color:var(--dark);margin-bottom:8px;font-family:'Baloo 2',cursive">How Rewards Work</p>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.6">Earn Hobbyo Points for every booking, attendance streak, and referral. Redeem for discounts, free events, activity credits, or exclusive merchandise. Parents and children both earn — building a habit loop around exploration.</p>
+        <div style="background:#fff;border-radius:14px;padding:18px;margin-top:14px;box-shadow:0 2px 10px rgba(0,0,0,.06)">
+          <p style="font-weight:700;color:var(--dark);margin-bottom:7px;font-family:'Baloo 2',cursive">Rewards Loop</p>
+          <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Earn Hobbyo Points for every booking, attendance streak and referral. Redeem for discounts, free events, activity credits or merchandise. Both parents and children earn — building habit and loyalty around exploration.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- BUSINESS MODEL -->
 <section id="business">
   <div class="center">
-    <div class="section-tag">Business Model</div>
-    <h2 class="section-title">Four Strong Revenue Streams</h2>
-    <p class="section-sub" style="margin:0 auto">Hobbyo earns from multiple directions — making the business resilient and deeply aligned with the platform's growth.</p>
+    <div class="stag">Business Model</div>
+    <h2 class="stitle">Six Interlocking Revenue Streams</h2>
+    <p class="ssub" style="margin:0 auto">Hobbyo earns from every side of the marketplace — making it resilient and deeply aligned with growth.</p>
   </div>
-  <div class="biz-grid">
-    <div class="biz-card c1">
-      <div class="biz-icon">👨‍👩‍👧</div>
-      <div class="biz-title">Consumer Revenue</div>
-      <ul class="biz-items">
-        <li>Activity Pack sales</li>
-        <li>Annual Membership ₹999</li>
-        <li>Event Tickets</li>
-        <li>Trial Class Bookings</li>
-        <li>Premium Upgrades</li>
-      </ul>
-    </div>
-    <div class="biz-card c2">
-      <div class="biz-icon">🏫</div>
-      <div class="biz-title">Provider Revenue</div>
-      <ul class="biz-items">
-        <li>Listing Fees (monthly)</li>
-        <li>Lead Generation Fees</li>
-        <li>CRM Subscription</li>
-        <li>Featured Placement</li>
-        <li>Booking Commission</li>
-      </ul>
-    </div>
-    <div class="biz-card c3">
-      <div class="biz-icon">🎪</div>
-      <div class="biz-title">Event Revenue</div>
-      <ul class="biz-items">
-        <li>Summer / Winter Camps</li>
-        <li>Ticketing Commission</li>
-        <li>Promotion Packages</li>
-        <li>School Event Listings</li>
-        <li>Corporate Workshops</li>
-      </ul>
-    </div>
-    <div class="biz-card c4">
-      <div class="biz-icon">📊</div>
-      <div class="biz-title">Data &amp; Intelligence</div>
-      <ul class="biz-items">
-        <li>Demand Reports by Area</li>
-        <li>Market Intelligence</li>
-        <li>Expansion Consulting</li>
-        <li>Provider Analytics</li>
-        <li>Trend Reports</li>
-      </ul>
+  <div class="bizg">
+    <div class="biz c1"><div class="bizi">👨‍👩‍👧</div><div class="bizt">Consumer</div><ul class="bizl"><li>Activity Pack sales</li><li>Annual Membership ₹999</li><li>Event Tickets</li><li>Trial Class Bookings</li><li>Premium Upgrades</li></ul></div>
+    <div class="biz c2"><div class="bizi">🏫</div><div class="bizt">Provider</div><ul class="bizl"><li>Listing Fees (monthly)</li><li>Lead Generation Fees</li><li>CRM Subscription</li><li>Featured Placement</li><li>Booking Commission 5–10%</li></ul></div>
+    <div class="biz c3"><div class="bizi">🎪</div><div class="bizt">Events</div><ul class="bizl"><li>Summer / Winter Camps</li><li>Ticketing Commission</li><li>Promotion Packages</li><li>School Event Listings</li><li>Corporate Workshops</li></ul></div>
+    <div class="biz c4"><div class="bizi">📊</div><div class="bizt">Data Intelligence</div><ul class="bizl"><li>Area Demand Reports</li><li>Market Intelligence</li><li>Expansion Consulting</li><li>Provider Analytics</li><li>Opportunity Score Reports</li></ul></div>
+  </div>
+  <div style="background:#fff;border-radius:20px;padding:28px;margin-top:28px;box-shadow:0 4px 18px rgba(0,0,0,.07)">
+    <h3 style="font-family:'Baloo 2',cursive;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:16px">Referral &amp; Rating Flywheel</h3>
+    <div class="g3" style="gap:16px">
+      <div style="background:rgba(255,107,53,.06);border-radius:14px;padding:16px"><p style="font-weight:600;color:var(--dark);font-size:.9rem;margin-bottom:6px">Provider Pays for High-Rating Referral</p><p style="font-size:.8rem;color:var(--muted);line-height:1.5">If a parent books a class from a pack recommendation, the referred provider pays a referral fee (₹200–500). Providers ranked higher for better ratings — incentivising quality.</p></div>
+      <div style="background:rgba(78,205,196,.06);border-radius:14px;padding:16px"><p style="font-weight:600;color:var(--dark);font-size:.9rem;margin-bottom:6px">Pack Secures Upfront Payment</p><p style="font-size:.8rem;color:var(--muted);line-height:1.5">₹999 Explorer Pack means the parent has already paid. The activity provider gets a guaranteed student — no chasing. Hobbyo holds the payment and releases per session attended.</p></div>
+      <div style="background:rgba(124,58,237,.06);border-radius:14px;padding:16px"><p style="font-weight:600;color:var(--dark);font-size:.9rem;margin-bottom:6px">Data Consulting at Scale</p><p style="font-size:.8rem;color:var(--muted);line-height:1.5">Once 10,000+ families use Hobbyo, demand data by area, age group and activity type becomes a sellable product. A provider wanting to open a new branch in Chandkheda pays ₹5,000–₹25,000 for a tailored expansion report.</p></div>
     </div>
   </div>
 </section>
-
-<!-- DEMAND INTELLIGENCE -->
-<div id="intel" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);padding:80px 24px">
-  <div class="intel-inner">
+<!-- BUSINESS ANALYSIS -->
+<div class="analysiswrap" id="analysis">
+  <div class="ainner">
     <div class="center">
-      <div class="section-tag" style="background:rgba(78,205,196,0.2);color:var(--teal)">Demand Intelligence</div>
-      <h2 class="section-title" style="color:#fff">Know Where to Grow Before You Go</h2>
-      <p class="section-sub" style="color:#94a3b8;margin:0 auto">Hobbyo tracks what activities parents want and where providers are missing. This creates a sellable data product for expansion-focused providers.</p>
+      <div class="stag" style="background:rgba(78,205,196,.15);color:var(--teal)">Deep Analysis</div>
+      <h2 class="stitle" style="color:#fff">Will Hobbyo Work? What Are the Odds?</h2>
+      <p class="ssub" style="color:#94a3b8;margin:0 auto">Evaluated using Jobs-to-be-Done framework, competitive moat analysis, and Indian market data.</p>
     </div>
-    <div class="intel-grid">
-      <div class="intel-card">
-        <div class="intel-area">South Bopal</div>
-        <div class="intel-demand">High demand: <strong>Robotics, Coding</strong></div>
-        <div class="intel-demand">Only <strong>2 providers</strong> currently active</div>
-        <div class="opp-bar"><div class="opp-fill" style="width:92%"></div></div>
-        <div class="opp-score"><div class="opp-label">Opportunity Score</div><div class="opp-val">92/100</div></div>
+    <div class="scoreg">
+      <div class="scorec">
+        <div class="scoren" style="color:#22C55E">72%</div>
+        <div class="scorel" style="color:#94a3b8">Success Probability — Ahmedabad MVP</div>
+        <div class="scorebar"><div class="scorefill" style="width:72%;background:linear-gradient(90deg,#22C55E,#4ade80)"></div></div>
+        <div class="scoredesc">Strong demand, low digital competition locally, clear pain point. Risk is cold-start supply. Rated using Lean Startup viability matrix + Indian EdTech market benchmarks.</div>
       </div>
-      <div class="intel-card">
-        <div class="intel-area">Thaltej</div>
-        <div class="intel-demand">High demand: <strong>Dance, Music</strong></div>
-        <div class="intel-demand">Only <strong>1 provider</strong> currently active</div>
-        <div class="opp-bar"><div class="opp-fill" style="width:88%"></div></div>
-        <div class="opp-score"><div class="opp-label">Opportunity Score</div><div class="opp-val">88/100</div></div>
+      <div class="scorec">
+        <div class="scoren" style="color:#FFE66D">68%</div>
+        <div class="scorel" style="color:#94a3b8">City Replication Success Rate</div>
+        <div class="scorebar"><div class="scorefill" style="width:68%;background:linear-gradient(90deg,#FFE66D,#fbbf24)"></div></div>
+        <div class="scoredesc">If Ahmedabad MVP hits 500+ parents and 50 providers in 6 months, the playbook is proven. Surat, Vadodara and Rajkot are natural Tier-2 targets sharing similar cultural profile.</div>
       </div>
-      <div class="intel-card">
-        <div class="intel-area">Chandkheda</div>
-        <div class="intel-demand">Rising demand: <strong>Chess, STEM</strong></div>
-        <div class="intel-demand"><strong>0 providers</strong> on platform</div>
-        <div class="opp-bar"><div class="opp-fill" style="width:95%"></div></div>
-        <div class="opp-score"><div class="opp-label">Opportunity Score</div><div class="opp-val">95/100</div></div>
+      <div class="scorec">
+        <div class="scoren" style="color:var(--orange)">₹18–35L</div>
+        <div class="scorel" style="color:#94a3b8">Estimated Annual Revenue — Ahmedabad Mature State</div>
+        <div class="scorebar"><div class="scorefill" style="width:60%;background:linear-gradient(90deg,var(--orange),#FF8C5A)"></div></div>
+        <div class="scoredesc">At 1,000 families, 150 providers and 50 events/year: ₹15–18L from packs + memberships, ₹8–12L from provider fees, ₹3–5L from events. Conservative estimate at Year 1–2 maturity.</div>
       </div>
-      <div class="intel-card">
-        <div class="intel-area">Maninagar</div>
-        <div class="intel-demand">High demand: <strong>Yoga, Fitness</strong></div>
-        <div class="intel-demand">Only <strong>3 providers</strong> currently active</div>
-        <div class="opp-bar"><div class="opp-fill" style="width:76%"></div></div>
-        <div class="opp-score"><div class="opp-label">Opportunity Score</div><div class="opp-val">76/100</div></div>
+    </div>
+
+    <!-- COMPETITIVE LANDSCAPE -->
+    <div class="compwrap">
+      <h3 style="font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px">Competitive Landscape</h3>
+      <p style="font-size:.85rem;color:#94a3b8;margin-bottom:20px">Global and Indian platforms that partially overlap — none solve the full picture Hobbyo targets.</p>
+      <div class="compl">
+        <div class="compc"><div class="compn">Classplus (India)</div><div class="compm">CRM for teachers. Does NOT help parents discover activities. No marketplace, no packs, no family-side product.</div><div class="compt"><div class="comptag" style="background:rgba(34,197,94,.1);color:#22C55E">Partial overlap</div><div class="comptag" style="background:rgba(255,107,53,.1);color:#FF6B35">Not a threat</div></div></div>
+        <div class="compc"><div class="compn">ActivityHero (USA)</div><div class="compm">Closest global comp. Activity marketplace for families in US cities. Not in India. Proof the model works at scale — raised $3M.</div><div class="compt"><div class="comptag" style="background:rgba(78,205,196,.1);color:#4ECDC4">Model validation</div><div class="comptag" style="background:rgba(255,230,109,.1);color:#FFE66D">Not in India</div></div></div>
+        <div class="compc"><div class="compn">UrbanPro (India)</div><div class="compm">Tutor marketplace only. No activities, no events, no CRM, no packs. Strong in tutoring but narrow scope.</div><div class="compt"><div class="comptag" style="background:rgba(34,197,94,.1);color:#22C55E">Learn from it</div><div class="comptag" style="background:rgba(255,107,53,.1);color:#FF6B35">Different segment</div></div></div>
+        <div class="compc"><div class="compn">Kiddopia / Kutuki</div><div class="compm">Digital learning apps. Completely online, no physical activities, no provider marketplace. Different product entirely.</div><div class="compt"><div class="comptag" style="background:rgba(255,107,53,.1);color:#FF6B35">Not a competitor</div></div></div>
+        <div class="compc"><div class="compn">JustDial / Google</div><div class="compm">Search — not a marketplace. No booking, no CRM, no recommendations, no trust signals. This is what Hobbyo replaces.</div><div class="compt"><div class="comptag" style="background:rgba(255,107,53,.1);color:#FF6B35">This is the problem</div></div></div>
+        <div class="compc" style="border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.07)"><div class="compn" style="color:var(--orange)">Hobbyo's Moat</div><div class="compm">CRM dependency + parent trust + data flywheel + local community network effects. Once 200 providers and 2,000 families are on — extremely hard to dislodge.</div><div class="compt"><div class="comptag" style="background:rgba(255,107,53,.15);color:#FF6B35">Our advantage</div></div></div>
       </div>
-      <div class="intel-card">
-        <div class="intel-area">Satellite</div>
-        <div class="intel-demand">Demand: <strong>All categories</strong></div>
-        <div class="intel-demand"><strong>18 providers</strong> — competitive</div>
-        <div class="opp-bar"><div class="opp-fill" style="width:45%"></div></div>
-        <div class="opp-score"><div class="opp-label">Opportunity Score</div><div class="opp-val">45/100</div></div>
+    </div>
+
+    <!-- RISKS & COUNTER -->
+    <div style="margin-top:36px">
+      <h3 style="font-family:'Baloo 2',cursive;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px">Key Risks &amp; How to Counter Them</h3>
+      <p style="font-size:.85rem;color:#94a3b8;margin-bottom:18px">Every risk has a structural counter built into the Hobbyo model.</p>
+      <div class="risk-g">
+        <div class="riskc"><div class="riskh">Risk: Provider fetches customer then bypasses platform</div><div class="risks">Counter: The CRM is the lock. All student data, attendance history, payment records and parent communication live on Hobbyo. A provider can't replicate this on WhatsApp. New discovery of students only available via the platform. The provider loses more than they gain by bypassing.</div></div>
+        <div class="riskc"><div class="riskh">Risk: Parents use Google or Instagram instead</div><div class="risks">Counter: Hobbyo offers what Google cannot — area-filtered, schedule-matched, price-compared, and review-verified results with one-click booking. Once a parent books their first class via Hobbyo and gets a pickup notification, the habit is formed.</div></div>
+        <div class="riskc"><div class="riskh">Risk: Low repeat usage / churn</div><div class="risks">Counter: Memberships, Rewards, Recommendations and Events keep families coming back. A child in 3 activities over 12 months creates 36+ touch-points annually. Badges and progress tracking add emotional stickiness beyond transactions.</div></div>
+        <div class="riskc"><div class="riskh">Risk: AI / Google improves and replaces discovery</div><div class="risks">Counter: AI can't own the CRM, the provider relationships, the payment history, the attendance data or the parent trust signals. The more data Hobbyo accumulates, the harder it becomes to replicate. The moat deepens with each booking.</div></div>
       </div>
-      <div class="intel-card" style="background:rgba(255,230,109,0.07);border-color:rgba(255,230,109,0.3)">
-        <div class="intel-area" style="color:var(--yellow)">Demand-Based Batches</div>
-        <div class="intel-demand" style="color:#94a3b8;margin-bottom:12px">When 30+ parents request the same activity in an area with no provider, Hobbyo steps in as the organizer — finds instructor, venue, and creates the batch.</div>
-        <div style="background:rgba(255,230,109,0.1);border-radius:10px;padding:10px 12px;font-size:0.82rem;color:var(--yellow);font-weight:600">Current: Pottery class requested by 50 parents in Satellite. Instructor search in progress.</div>
+    </div>
+
+    <!-- MARKET CATEGORY -->
+    <div style="margin-top:32px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px">
+      <h3 style="font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:14px">What Category Is This Business?</h3>
+      <div class="g3" style="gap:14px">
+        <div style="background:rgba(255,107,53,.1);border-radius:12px;padding:14px"><p style="font-weight:700;color:var(--orange);margin-bottom:4px">Activity Marketplace</p><p style="font-size:.82rem;color:#94a3b8">Like Airbnb for experiences — connecting supply (providers) with demand (families). Earns on both sides.</p></div>
+        <div style="background:rgba(78,205,196,.1);border-radius:12px;padding:14px"><p style="font-weight:700;color:var(--teal);margin-bottom:4px">EdTech + WellnessTech</p><p style="font-size:.82rem;color:#94a3b8">India's EdTech market is $10B+. Hobbyo sits at the intersection of offline learning, wellness, and community — underserved by pure-digital EdTech.</p></div>
+        <div style="background:rgba(124,58,237,.1);border-radius:12px;padding:14px"><p style="font-weight:700;color:var(--purple);margin-bottom:4px">Vertical SaaS + CRM</p><p style="font-size:.82rem;color:#94a3b8">The provider-side CRM makes Hobbyo a vertical SaaS play — not just a marketplace. This is the higher-margin, sticky revenue that marketplaces dream of.</p></div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- DEMAND INTEL -->
+<div class="intelwrap" id="intel">
+  <div class="inteli">
+    <div class="center">
+      <div class="stag" style="background:rgba(78,205,196,.15);color:var(--teal)">Demand Intelligence</div>
+      <h2 class="stitle" style="color:#fff">Know Where to Grow Before You Go</h2>
+      <p class="ssub" style="color:#94a3b8;margin:0 auto">Hobbyo's data product — sell area opportunity reports to providers wanting to expand. This is a recurring consulting revenue stream that grows with the platform.</p>
+    </div>
+    <div class="intelg">
+      <div class="intelc"><div class="intela">Chandkheda</div><div class="inteld">High demand: <strong>Chess, STEM</strong></div><div class="inteld"><strong>0 providers</strong> on platform</div><div class="oppbar"><div class="oppfill" style="width:95%"></div></div><div class="opprow"><div class="oppl">Opportunity Score</div><div class="oppv">95/100</div></div></div>
+      <div class="intelc"><div class="intela">South Bopal</div><div class="inteld">High demand: <strong>Robotics, Coding</strong></div><div class="inteld">Only <strong>2 providers</strong></div><div class="oppbar"><div class="oppfill" style="width:92%"></div></div><div class="opprow"><div class="oppl">Opportunity Score</div><div class="oppv">92/100</div></div></div>
+      <div class="intelc"><div class="intela">Thaltej</div><div class="inteld">High demand: <strong>Dance, Music</strong></div><div class="inteld">Only <strong>1 provider</strong></div><div class="oppbar"><div class="oppfill" style="width:88%"></div></div><div class="opprow"><div class="oppl">Opportunity Score</div><div class="oppv">88/100</div></div></div>
+      <div class="intelc"><div class="intela">Maninagar</div><div class="inteld">Rising: <strong>Yoga, Fitness</strong></div><div class="inteld">Only <strong>3 providers</strong></div><div class="oppbar"><div class="oppfill" style="width:76%"></div></div><div class="opprow"><div class="oppl">Opportunity Score</div><div class="oppv">76/100</div></div></div>
+      <div class="intelc"><div class="intela">Satellite</div><div class="inteld">All categories in demand</div><div class="inteld"><strong>18 providers</strong> — competitive</div><div class="oppbar"><div class="oppfill" style="width:45%"></div></div><div class="opprow"><div class="oppl">Opportunity Score</div><div class="oppv">45/100</div></div></div>
+      <div class="intelc" style="border-color:rgba(255,230,109,.3);background:rgba(255,230,109,.06)"><div class="intela" style="color:var(--yellow)">Demand-Based Batch Creation</div><div style="font-size:.82rem;color:#94a3b8;margin-bottom:12px;line-height:1.5">When 30+ parents request an activity in an area with no provider, Hobbyo becomes the organiser — finds instructor, venue, creates the batch. Platform earns the full margin.</div><div style="background:rgba(255,230,109,.1);border-radius:9px;padding:9px 12px;font-size:.8rem;color:var(--yellow);font-weight:600">Current: Pottery requested by 50 parents in Satellite. Instructor search in progress.</div></div>
     </div>
   </div>
 </div>
@@ -924,143 +869,91 @@ footer{background:var(--dark);padding:60px 24px 40px;color:#fff}
 <!-- MVP -->
 <section id="mvp">
   <div class="center">
-    <div class="section-tag">MVP — Ahmedabad First</div>
-    <h2 class="section-title">Validating the Model in One City</h2>
-    <p class="section-sub" style="margin:0 auto">Before expanding across India, Hobbyo will prove the model in Ahmedabad — building the supply, demand, and data flywheel.</p>
+    <div class="stag">MVP — Ahmedabad First</div>
+    <h2 class="stitle">Prove the Model. Then Replicate.</h2>
+    <p class="ssub" style="margin:0 auto">Hit these targets in Ahmedabad and the entire playbook is validated for Surat, Vadodara, Rajkot and beyond.</p>
   </div>
-  <div class="mvp-grid">
-    <div class="mvp-card">
-      <div class="mvp-num">100</div>
-      <div class="mvp-label">Activity Providers</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div>
-      <div class="progress-pct">Target: 100 · Phase 1</div>
+  <div class="mvpg">
+    <div class="mvpc"><div class="mvpn">100</div><div class="mvpl">Activity Providers</div><div class="pb"><div class="pf" style="width:15%"></div></div><div class="pp">Phase 1 Target</div></div>
+    <div class="mvpc"><div class="mvpn">20</div><div class="mvpl">Private Teachers</div><div class="pb"><div class="pf" style="width:10%"></div></div><div class="pp">Phase 1 Target</div></div>
+    <div class="mvpc"><div class="mvpn">1,000</div><div class="mvpl">Parent Sign-ups</div><div class="pb"><div class="pf" style="width:5%"></div></div><div class="pp">Phase 1 Target</div></div>
+    <div class="mvpc"><div class="mvpn">100</div><div class="mvpl">Bookings Made</div><div class="pb"><div class="pf" style="width:0%"></div></div><div class="pp">Phase 1 Target</div></div>
+  </div>
+  <div style="background:#fff;border-radius:18px;padding:26px;box-shadow:0 4px 18px rgba(0,0,0,.07);margin-top:26px">
+    <h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:1.1rem;color:var(--dark);margin-bottom:16px">Total MVP Investment Estimate</h3>
+    <div class="costg">
+      <div class="costc"><div class="costv">₹1,000</div><div class="costl">Domain</div></div>
+      <div class="costc"><div class="costv">₹5,000</div><div class="costl">Hosting (Annual)</div></div>
+      <div class="costc"><div class="costv">₹2,500</div><div class="costl">Play Store</div></div>
+      <div class="costc"><div class="costv">₹7,000</div><div class="costl">Apple Store (₹8,000 one-time)</div></div>
+      <div class="costc"><div class="costv">₹30–50k</div><div class="costl">App Dev (AI-assisted)</div></div>
+      <div class="costc"><div class="costv">₹20–50k</div><div class="costl">Marketing (Phase 1)</div></div>
     </div>
-    <div class="mvp-card">
-      <div class="mvp-num">20</div>
-      <div class="mvp-label">Private Teachers</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
-      <div class="progress-pct">Target: 20 · Phase 1</div>
-    </div>
-    <div class="mvp-card">
-      <div class="mvp-num">1,000</div>
-      <div class="mvp-label">Parent Sign-ups</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div>
-      <div class="progress-pct">Target: 1,000 · Phase 1</div>
-    </div>
-    <div class="mvp-card">
-      <div class="mvp-num">100</div>
-      <div class="mvp-label">Bookings Made</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-      <div class="progress-pct">Target: 100 · Phase 1</div>
+    <div style="margin-top:16px;background:rgba(255,107,53,.06);border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-family:'Baloo 2',cursive;font-weight:700;color:var(--dark)">Total Estimated MVP Cost</span>
+      <span style="font-family:'Baloo 2',cursive;font-size:1.5rem;font-weight:800;color:var(--orange)">₹65,000 – ₹1,20,000</span>
     </div>
   </div>
-  <div style="background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);margin-top:32px">
-    <h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:1.2rem;color:var(--dark);margin-bottom:20px">Estimated MVP Investment</h3>
-    <div class="cost-grid">
-      <div class="cost-item"><div class="cost-val">₹1,000</div><div class="cost-label">Domain</div></div>
-      <div class="cost-item"><div class="cost-val">₹5,000</div><div class="cost-label">Hosting (Annual)</div></div>
-      <div class="cost-item"><div class="cost-val">₹50,000</div><div class="cost-label">Development</div></div>
-      <div class="cost-item"><div class="cost-val">₹2,500</div><div class="cost-label">Play Store</div></div>
-      <div class="cost-item"><div class="cost-val">₹50,000</div><div class="cost-label">Marketing</div></div>
-      <div class="cost-item"><div class="cost-val">₹1.25L</div><div class="cost-label">Total Estimated</div></div>
-    </div>
+  <div class="phaseg" style="margin-top:24px">
+    <div class="phasec"><div class="phaset">Phase 1 (Month 1–3): Seed</div><div class="phased">Onboard 20 providers manually in Satellite &amp; Bopal. Build a WhatsApp parent community. Launch 3 activity packs. Run 1 event. Collect feedback obsessively. Cost: ₹65k.</div></div>
+    <div class="phasec"><div class="phaset">Phase 2 (Month 4–8): Prove</div><div class="phased">100 providers, 500 parents, 50 bookings. Enable CRM for all providers. Launch membership. Begin data collection by area. Cost: ₹30–40k additional marketing.</div></div>
+    <div class="phasec"><div class="phaset">Phase 3 (Month 9–18): Replicate</div><div class="phased">If Ahmedabad hits targets — clone the playbook for Surat. Same city-by-city approach. Hire 1 city manager per city. Revenue from Ahmedabad funds the expansion.</div></div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
+  <div class="fi">
+    <div class="ftop">
       <div>
-        <div class="footer-brand">Hobby<span>o</span></div>
-        <div class="footer-tagline">India's Family Activity Operating System. Connecting parents, children, and activity providers — starting in Ahmedabad, expanding city by city.</div>
-        <div class="city-badge">Currently: Ahmedabad</div>
+        <div class="fbrand">Hobby<span>o</span></div>
+        <div class="ftagline">India's Family Activity Operating System. Connecting parents, children, women, adults and seniors with the best activities — starting in Ahmedabad, city by city across India.</div>
+        <div class="citybadge">MVP City: Ahmedabad</div>
       </div>
-      <div class="footer-col">
-        <h4>For Families</h4>
-        <ul>
-          <li><a href="#">Discover Activities</a></li>
-          <li><a href="#">Activity Packs</a></li>
-          <li><a href="#">Smart Recommendations</a></li>
-          <li><a href="#">Hobbyo Pass</a></li>
-          <li><a href="#">Rewards &amp; Badges</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>For Providers</h4>
-        <ul>
-          <li><a href="#">List Your Classes</a></li>
-          <li><a href="#">Provider CRM</a></li>
-          <li><a href="#">Featured Listings</a></li>
-          <li><a href="#">School Marketplace</a></li>
-          <li><a href="#">Pricing &amp; Plans</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About Hobbyo</a></li>
-          <li><a href="#">Vision &amp; Mission</a></li>
-          <li><a href="#">Partner With Us</a></li>
-          <li><a href="#">Investor Deck</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
+      <div class="fcol"><h4>For Families</h4><ul><li><a href="#">Discover Activities</a></li><li><a href="#">Activity Packs</a></li><li><a href="#">Smart Recommendations</a></li><li><a href="#">Hobbyo Pass ₹999</a></li><li><a href="#">Rewards &amp; Badges</a></li></ul></div>
+      <div class="fcol"><h4>For Providers</h4><ul><li><a href="#">List Your Classes</a></li><li><a href="#">Provider CRM</a></li><li><a href="#">Featured Listings</a></li><li><a href="#">School Marketplace</a></li><li><a href="#">Pricing &amp; Plans</a></li></ul></div>
+      <div class="fcol"><h4>Company</h4><ul><li><a href="#">About Hobbyo</a></li><li><a href="#">Vision &amp; Mission</a></li><li><a href="#">Partner With Us</a></li><li><a href="#">Investor Deck</a></li><li><a href="#">Contact</a></li></ul></div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 Hobbyo. Built for Ahmedabad. Dreamed for India.</div>
-      <div style="font-size:0.82rem;color:#64748b">Hobbyo – Discover. Learn. Grow.</div>
+    <div class="fbot">
+      <div class="fcopy">© 2026 Hobbyo. Built for Ahmedabad. Dreamed for India.</div>
+      <div style="font-size:.8rem;color:#64748b">Hobbyo – Discover. Learn. Grow.</div>
     </div>
   </div>
 </footer>
 
 <script>
-function showTab(btn, tab) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  ['children','women','adults','seniors'].forEach(t => {
-    const el = document.getElementById('tab-'+t);
-    if(el) el.style.display = t === tab ? 'grid' : 'none';
+function showTab(btn,tab){
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['children','women','adults','seniors'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el) el.style.display=t===tab?'grid':'none';
   });
 }
-document.querySelectorAll('.filter-chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    const siblings = this.parentElement.querySelectorAll('.filter-chip');
-    const isAreaChip = ['Satellite','Bopal','Prahlad Nagar','SG Highway','Navrangpura','All Areas'].includes(this.textContent);
-    if(isAreaChip) {
-      siblings.forEach(s => {
-        if(['Satellite','Bopal','Prahlad Nagar','SG Highway','Navrangpura','All Areas'].includes(s.textContent)) s.classList.remove('active');
-      });
-    }
-    this.classList.toggle('active');
+document.querySelectorAll('.fc').forEach(c=>{
+  c.addEventListener('click',function(){
+    const isArea=['All Areas','Satellite','Bopal','Prahlad Nagar','SG Highway','Navrangpura'].includes(this.textContent);
+    if(isArea) document.querySelectorAll('.fc').forEach(s=>{if(['All Areas','Satellite','Bopal','Prahlad Nagar','SG Highway','Navrangpura'].includes(s.textContent))s.classList.remove('on')});
+    this.classList.toggle('on');
   });
 });
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    this.classList.toggle('active');
+document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',function(){this.classList.toggle('on')}));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
   });
 });
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
-  });
-});
-// Animate progress bars on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.querySelectorAll('.progress-fill').forEach(bar => {
-        const w = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => bar.style.width = w, 100);
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.pf,.scorefill,.oppfill').forEach(b=>{
+        const w=b.style.width;b.style.width='0';setTimeout(()=>b.style.width=w,100);
       });
     }
   });
-}, {threshold:0.3});
-const mvpSection = document.getElementById('mvp');
-if(mvpSection) observer.observe(mvpSection);
+},{threshold:.3});
+['mvp','analysis','intel'].forEach(id=>{const s=document.getElementById(id);if(s)obs.observe(s);});
 </script>
 </body>
 </html>
